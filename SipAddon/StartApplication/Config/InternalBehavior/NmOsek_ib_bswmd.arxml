@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-1.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="360b10cf-d944-4239-b5ad-1181faa0a21a">
+          <SHORT-NAME>NmOsek_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="218bed4b-ab86-48a8-bead-64eb5e7f7f96">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="16e3e127-9618-4479-9c7d-f4a31b725b1d">
+                  <SHORT-NAME>NmOsek</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/NmOsek_ib_bswmd/BswModuleDescriptions/NmOsek_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="38dae3cb-f743-42ed-b306-967c2ddb309f">
+                      <SHORT-NAME>NmOsekBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="63c91264-fb35-41e7-937d-bd7c16c5bcf7">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_0</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption by any interrupt is allowed. Therefore this section must always lock global interrupts.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="3ab0651c-bcac-4f3d-a2cc-89855c1e8e3c">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_1</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of NmOsek_NetworkRelease(), NmOsek_DisableCommunication() and NmOsek_EnableCommunication() by NmOsek_MainFunction() allowed. Global interrupts must be locked if the interruption might happen.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="e671934b-2c99-463d-9a5e-117aa0b59b1b">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_2</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of NmOsek_PassiveStartUp() by NmOsek_MainFunction() allowed. Global interrupts must be locked if the interruption might happen.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="0c8bf9ce-7ac7-482a-8911-c82f072dcb54">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_3</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of NmOsek_SetUserData() by NmOsek_MainFunction() allowed. Global interrupts must be locked if the interruption might happen.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="ed9ece5d-6c20-4f59-adfb-9f566c2b29ca">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_4</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of NmOsek_GetUserData() by NmOsek_RxIndication() or NmOsek_GetPduData() allowed. Global interrupts must be locked if the interruption might happen.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5932b674-c9fe-455f-b9d7-1c7f6b5a248e">
+                          <SHORT-NAME>NMOSEK_EXCLUSIVE_AREA_5</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of NmOsek_GetPduData() by NmOsek_RxIndication() or NmOsek_GetUserData() allowed. Global interrupts must be locked if the interruption might happen.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="3c0d6349-0120-4880-9ebd-25fe979f57d4">
+                          <SHORT-NAME>NmOsek_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/NmOsek_ib_bswmd/BswModuleDescriptions/NmOsek_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="b19c4969-a751-437f-b0e5-7e75c01d6aad">
+                          <SHORT-NAME>NmOsek_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/NmOsek_ib_bswmd/BswModuleDescriptions/NmOsek/NmOsekBehavior/NmOsek_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.01</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="2dd6f96f-52e7-4af4-b12e-7eeda6f13c45">
+                  <SHORT-NAME>NmOsek_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

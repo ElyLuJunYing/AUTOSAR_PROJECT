@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-1.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="05214e7a-ff95-4a21-b3a6-f53e64c26fea">
+      <SHORT-NAME>TS_T40D2M10I0R0</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="f08dadf8-88bc-4dee-9d3d-a05bd0145fa4">
+          <SHORT-NAME>Eep_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="bf2ee11b-c143-4cfc-bebf-d149a86d4ace">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="f5908155-602c-48fd-aa8b-54ed5faf260b">
+                  <SHORT-NAME>Eep</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D2M10I0R0/Eep_ib_bswmd/BswModuleDescriptions/Eep_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="e5044cfa-b660-4a4b-9ec7-919b86fe71da">
+                      <SHORT-NAME>EepBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="19458612-21e4-4b58-8f7e-743cd5193e99">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_00</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="6720f3e7-c469-41f7-80e0-67aaa45f08ef">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_01</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="27d38ef9-491c-4b3c-8621-cb1eae3f0468">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_02</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="abd4fad0-5d43-4a1d-b54c-22156eb71a5d">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_03</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="08560a37-1b8f-46eb-8299-31a9e0faa562">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_04</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="f93a03a3-018e-4384-8d54-22ac92fe1b70">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_05</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5743b02f-4ce8-4c65-bbbb-37fe9da7e551">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_06</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="40703c89-9add-4f32-83e0-e1cb04382ef4">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_07</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="e0b368f5-c3b2-4b84-8c43-1d794f4bdca4">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_08</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="41703e2e-2706-4f3b-9fb7-107c6cedc8c3">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_09</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="246c431e-5467-47d0-b368-f77d29ffd921">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_10</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="c07cd32b-d6d7-4348-8fef-e79b2a6b4b4a">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_11</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="c9f579f5-268c-4aea-8b45-7284ab91a672">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_12</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="3c75aaa2-1cdd-45b0-ac44-4d1c860a5498">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_13</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="f8043caf-b341-45af-84c3-0db89bc45d77">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_14</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5cd6fdb7-fa02-433d-b5b3-116b5cf691a3">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_15</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="c1af87d4-cce2-4aaa-b28f-904141b0cc17">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_16</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="af378667-05d3-4fc8-a70e-38c5342fd528">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_17</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="7454633f-2712-4144-87a1-164307ee40a0">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_18</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="431f4cbf-3e26-4853-bcea-d9bf21a83a7b">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_19</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5bbcb464-d4c3-454c-9413-2d07281f5794">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_20</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="2ffa3308-a2d4-4130-8d0c-7ed4bf91fc13">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_21</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="7e3dfbd9-c8b9-40ef-8907-6405f6401443">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_22</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="514102b5-4651-4ec9-9ff9-c37d74f54fe4">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_23</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="97b2016e-217b-41e1-8489-fe03f717eea1">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_24</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="775c0fea-9669-46be-b749-a26a1f7d87a1">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_25</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="46f443c8-6839-4fcf-96ba-df30f909370b">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_26</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5eb273ff-513d-4665-863d-0b68eb646bd7">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_27</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="53d38e6f-df97-4687-84be-bfc2dc8c14dc">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_28</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="bd42fc36-baf0-408a-85dc-94edceb2ad6b">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_29</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="52fbfce1-6d79-46f6-a571-0cb3e4609dfb">
+                          <SHORT-NAME>EEP_EXCLUSIVE_AREA_30</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="da7119e7-d3e4-4da8-877f-7ab785b71509">
+                          <SHORT-NAME>Eep_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/TS_T40D2M10I0R0/Eep_ib_bswmd/BswModuleDescriptions/Eep_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="80006c72-9847-4180-bbf5-6ad03c6aef7f">
+                          <SHORT-NAME>Eep_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/TS_T40D2M10I0R0/Eep_ib_bswmd/BswModuleDescriptions/Eep/EepBehavior/Eep_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="66fb67ff-f946-4a0c-9f8e-91126abf2b5e">
+                  <SHORT-NAME>Eep_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

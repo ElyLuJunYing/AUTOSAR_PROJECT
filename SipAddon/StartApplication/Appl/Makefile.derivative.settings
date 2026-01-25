@@ -1,0 +1,181 @@
+#######################################################################################################################
+# File Name  : Makefile.derivative.settings                                                                           #
+# Description: This file simply defines the locations for RAM/ROM, which will be included by                          #
+#              Makefile.$(PLATFORM)...make (from ArmCommon), which generates the Linker-Command-File                  #
+# Project    : Vector Basic Runtime System                                                                            #
+# Module     : BrsHw for platform NXP S32K1xx                                                                         #
+#                                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# COPYRIGHT                                                                                                           #
+#---------------------------------------------------------------------------------------------------------------------#
+# Copyright (c) 2018 by Vector Informatik GmbH.                                                  All rights reserved. #
+#                                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# AUTHOR IDENTITY                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# Name                          Initials      Company                                                                 #
+# ----------------------------  ------------  ------------------------------------------------------------------------#
+# Nguyen Le                     vislnn        Vector Informatik GmbH                                                  #
+# Jens Haerer                   visjhr        Vector Informatik GmbH                                                  #
+# Benjamin Walter               visbwa        Vector Informatik GmbH                                                  #
+# Michael Tiran                 vismin        Vector Informatik GmbH                                                  #
+# Sascha Mauser                 vismaa        Vector Informatik GmbH                                                  #
+# Sherif Elsabbahy              vissey        Vector Informatik GmbH                                                  #
+# Hakan Capci                   vishci        Vector Informatik GmbH                                                  #
+#---------------------------------------------------------------------------------------------------------------------#
+# REVISION HISTORY                                                                                                    #
+#---------------------------------------------------------------------------------------------------------------------#
+# Version   Date        Author  Description                                                                           #
+# --------  ----------  ------  --------------------------------------------------------------------------------------#
+# 01.00.00  2015-09-15  vislnn  Initial creation for S32K144                                                          #
+# 01.00.01  2015-10-26  visjhr  Fixed RAM and ROM mappings                                                            #
+# 02.00.02  2016-05-31  visbwa  Moved MEMORY_REGION_DEFINE from Linkerscript into this platform specific file         #
+# 02.00.01  2016-06-15  vismin  Added support for IAR compiler                                                        #
+# 02.00.02  2016-06-20  visbwa  Reworked file header structure to Brs_Template 2.00.01                                #
+# 02.01.00  2016-06-29  vismin  Renamed file from Makefile.S32K144.definitions into Makefile.derivative.settings      #
+# 02.01.01  2016-10-07  vismaa  Added support for S32K142, S32K146 and S32K148, fixed Codeflash size of S32K144       #
+# 02.02.00  2017-01-25  visjhr  Added support for S32V234 and HSR_1387 (LG ECU with S32V234 and Interface board)      #
+# 02.02.01  2017-03-16  vissey  Added support for WCT1013 and WCT1014, added usage of SRAM_U for all S32K derivatives #
+# 02.02.02  2017-04-26  visbwa  Added SRAM hints for S32K, fixed RAM mapping for S32K derivatives                     #
+#                               (according to S32K14x Series Reference Manual Rev. 3 03/2027)                         #
+# 02.02.03  2017-07-21  visbwa  Increased size of section VECTORS to 0x400                                            #
+# 02.02.04  2017-10-20  visbwa  Introduced region VECTORS_OS for IAR OsGen7 UseCase, removed unused OPTION_BYTES      #
+# 02.02.05  2018-01-29  vismaa  Added S32K116 and S32K118, introduced VECTOR_TABLE_SIZE                               #
+# 02.02.06  2018-04-27  visjhr  Added reserved and option bytes flash area of S32 Arm (0x400-0x410)                   #
+# 02.02.07  2018-08-03  visbwa  Increased default VECTOR_TABLE_SIZE                                                   #
+# 02.02.08  2018-08-17  vishci  Removed implementation of S32V234                                                     #
+# 02.02.09  2018-08-20  visbwa  Increased default size of region PERIPH_IRQ for IAR compiler                          #
+#######################################################################################################################
+
+#------------------------------------------------------------------------------
+# ----- DERIVATIVE RAM SETTINGS -----
+#------------------------------------------------------------------------------
+#SRAM hints for S32K:
+#  SRAM_L is anchored to 1FFF_FFFFh and occupies the space before this address.
+#  SRAM_U is anchored to 2000_0000h and occupies the space after this address.
+
+### S32K116 ###
+#SRAM_L=1kByte, SRAM_U=13kByte
+S32K116_RAM_MAPPING     = 0x1FFFFC00
+S32K116_RAM_SIZE        = 0x00003800
+S32K116_CODEFLASH_SIZE  = 128k
+S32K116_OPTIONBYTES     = 1
+
+### S32K118 ###
+#SRAM_L=1kByte, SRAM_U=21kByte
+S32K118_RAM_MAPPING     = 0x1FFFFC00
+S32K118_RAM_SIZE        = 0x00005800
+S32K118_CODEFLASH_SIZE  = 256k
+S32K118_OPTIONBYTES     = 1
+
+### S32K142 ###
+#SRAM_L=16kByte, SRAM_U=12kByte
+S32K142_RAM_MAPPING     = 0x1FFFC000
+S32K142_RAM_SIZE        = 0x00007000
+S32K142_CODEFLASH_SIZE  = 256k
+S32K142_OPTIONBYTES     = 1
+
+### WCT1013 ###
+WCT1013_RAM_MAPPING     = $(S32K142_RAM_MAPPING)
+WCT1013_RAM_SIZE        = $(S32K142_RAM_SIZE)
+WCT1013_CODEFLASH_SIZE  = $(S32K142_CODEFLASH_SIZE)
+WCT1013_OPTIONBYTES     = 1
+
+### S32K144 ###
+#SRAM_L=32kByte, SRAM_U=28kByte
+S32K144_RAM_MAPPING     = 0x1FFF8000
+S32K144_RAM_SIZE        = 0x0000F000
+S32K144_CODEFLASH_SIZE  = 512k
+S32K144_OPTIONBYTES     = 1
+
+### WCT1014 ###
+WCT1014_RAM_MAPPING     = $(S32K144_RAM_MAPPING)
+WCT1014_RAM_SIZE        = $(S32K144_RAM_SIZE)
+WCT1014_CODEFLASH_SIZE  = $(S32K144_CODEFLASH_SIZE)
+WCT1014_OPTIONBYTES     = 1
+
+### S32K146 ###
+#SRAM_L=64kByte, SRAM_U=60kByte
+S32K146_RAM_MAPPING     = 0x1FFF0000
+S32K146_RAM_SIZE        = 0x0001F000
+S32K146_CODEFLASH_SIZE  = 1024k
+S32K146_OPTIONBYTES     = 1
+
+### S32K148 ###
+#SRAM_L=128kByte, SRAM_U=124kByte
+S32K148_RAM_MAPPING     = 0x1FFE0000
+S32K148_RAM_SIZE        = 0x0003F000
+S32K148_CODEFLASH_SIZE  = 2048k
+S32K148_OPTIONBYTES     = 1
+
+
+#------------------------------------------------------------------------------
+# ----- PLATFORM SPECIFIC SETTINGS -----
+#------------------------------------------------------------------------------
+VECTOR_TABLE_SIZE = 0x400
+
+#------------------------------------------------------------------------------
+# ----- COMPILER SPECIFIC SETTINGS -----
+#------------------------------------------------------------------------------
+ifeq ($(COMPILER_MANUFACTURER),$(filter $(COMPILER_MANUFACTURER),GHS IAR GNU))
+  RAM_MAPPING = $($(DERIVATIVE)_RAM_MAPPING)
+  RAM_SIZE    = $($(DERIVATIVE)_RAM_SIZE)
+
+  ifeq ($(PROGRAM_CODE_LOCATION),$(filter $(PROGRAM_CODE_LOCATION),FLASH))
+    ifeq ($(VECTOR_TABLE_LOCATION),$(filter $(VECTOR_TABLE_LOCATION),FLASH))
+      ifeq ($(COMPILER_MANUFACTURER),$(filter $(COMPILER_MANUFACTURER),GHS GNU))
+        #------------------------------------------------------------------------------
+        # ----- MEMORY REGIONS -----
+        #------------------------------------------------------------------------------
+        define MEMORY_REGION_DEFINE
+          $(ECHO) "  RAM_ETH  : ORIGIN = 0x00000000, LENGTH = 0x0"                                                                           >> $@; \
+          $(ECHO) "  VECTORS  : ORIGIN = 0x00000000, LENGTH = $(VECTOR_TABLE_SIZE)"                                                          >> $@; \
+          $(ECHO) "  RESERVED : ORIGIN = 0x00000400, LENGTH = 0x0C"                                                                          >> $@; \
+          $(ECHO) "  OPTBYTES : ORIGIN = 0x0000040C, LENGTH = 0x04"                                                                          >> $@; \
+          $(ECHO) "  FLASH    : ORIGIN = 0x00000500, LENGTH = $($(DERIVATIVE)_CODEFLASH_SIZE) - 0x500"                                       >> $@; \
+          $(ECHO) "  RAM      : ORIGIN = $(RAM_MAPPING), LENGTH = ($(RAM_SIZE) - 0x10 - $(STACKSIZE))"                                       >> $@; \
+          $(ECHO) "  HEAP     : ORIGIN = ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE) - 0x10), LENGTH = 0x10"                                >> $@; \
+          $(ECHO) "  STACK    : ORIGIN = ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE)), LENGTH = $(STACKSIZE)"                               >> $@;
+        endef
+      endif
+      ifeq ($(COMPILER_MANUFACTURER),IAR)
+        #------------------------------------------------------------------------------
+        # ----- MEMORY REGIONS -----
+        #------------------------------------------------------------------------------
+        define MEMORY_REGION_DEFINE
+          $(ECHO) "define region VECTORS_OS   = int_memory:[from 0x00000000  size ($(VECTOR_TABLE_SIZE))];"                                 >> $@;\
+          $(ECHO) "define region CORE_IRQ     = int_memory:[from 0x00000000  size (0x00000040)];"                                           >> $@;\
+          $(ECHO) "define region PERIPH_IRQ   = int_memory:[from 0x00000040  size (0x000002C0)];"                                           >> $@;\
+          $(ECHO) "define region OPTION_BYTES = int_memory:[from 0x0000040C  size (0x00000004)];"                                           >> $@;\
+          $(ECHO) "define region CODE         = int_memory:[from 0x00000500  size ($($(DERIVATIVE)_CODEFLASH_SIZE) - 0x500)];"              >> $@;\
+          $(ECHO) "define region DATA         = int_memory:[from ($(RAM_MAPPING))  size ($(RAM_SIZE) - 0x10 - $(STACKSIZE))];"              >> $@;\
+          $(ECHO) "define region HEAP_MEM     = int_memory:[from ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE) - 0x10)  size (0x00000010)];" >> $@;\
+          $(ECHO) "define region STACK_MEM    = int_memory:[from ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE))  size ($(STACKSIZE))];"      >> $@;
+        endef
+      endif
+    else
+      $(error Only the same values for 'PROGRAM_CODE_LOCATION' and 'VECTOR_TABLE_LOCATION' are supported!)
+    endif
+  else  
+    ifeq ($(PROGRAM_CODE_LOCATION),$(filter $(PROGRAM_CODE_LOCATION),RAM))
+      ifeq ($(VECTOR_TABLE_LOCATION),$(filter $(VECTOR_TABLE_LOCATION),RAM))
+        ifeq ($(COMPILER_MANUFACTURER),$(filter $(COMPILER_MANUFACTURER),GHS GNU))
+          #------------------------------------------------------------------------------
+          # ----- MEMORY REGIONS -----
+          #------------------------------------------------------------------------------
+          define MEMORY_REGION_DEFINE
+            $(ECHO) "  RAM_ETH : ORIGIN = 0x00000000, LENGTH = 0x0"                                                                                     >> $@; \
+            $(ECHO) "  VECTORS : ORIGIN = $(RAM_MAPPING), LENGTH = $(VECTOR_TABLE_SIZE)"                                                                >> $@; \
+            $(ECHO) "  RAM     : ORIGIN = ($(RAM_MAPPING) + $(VECTOR_TABLE_SIZE)), LENGTH = ($(RAM_SIZE) - 0x10 - $(STACKSIZE) - $(VECTOR_TABLE_SIZE))" >> $@; \
+            $(ECHO) "  HEAP    : ORIGIN = ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE) - 0x10), LENGTH = 0x10"                                          >> $@; \
+            $(ECHO) "  STACK   : ORIGIN = ($(RAM_MAPPING) + $(RAM_SIZE) - $(STACKSIZE)), LENGTH = $(STACKSIZE)"                                         >> $@;
+          endef
+        else
+          $(error Only the value FLASH for 'PROGRAM_CODE_LOCATION' and 'VECTOR_TABLE_LOCATION' is supported for IAR compiler!)
+        endif
+      else
+        $(error Only the same values for 'PROGRAM_CODE_LOCATION' and 'VECTOR_TABLE_LOCATION' are supported!)
+      endif
+    endif  
+  endif
+endif

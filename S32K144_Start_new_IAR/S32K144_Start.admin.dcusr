@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Settings>
+    <Settings Name="com.vector.cfg.gui.moduleexport.history">
+        <Settings Name="1768358983157">
+            <Settings Name="0">
+                <Setting Value="/ActiveEcuC/Can" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="1">
+                <Setting Value="/ActiveEcuC/CanIf" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="10">
+                <Setting Value="/ActiveEcuC/EcuC" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="11">
+                <Setting Value="/ActiveEcuC/EcuM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="12">
+                <Setting Value="/Mcu/Mcu" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="13">
+                <Setting Value="/ActiveEcuC/Os" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="14">
+                <Setting Value="/ActiveEcuC/PduR" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="15">
+                <Setting Value="/Port/Port" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="16">
+                <Setting Value="/Resource/Resource" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="17">
+                <Setting Value="/ActiveEcuC/Rte" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="18">
+                <Setting Value="/Base/Base" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="19">
+                <Setting Value="/ActiveEcuC/Det" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="2">
+                <Setting Value="/ActiveEcuC/CanSM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="20">
+                <Setting Value="/ActiveEcuC/BswM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="21">
+                <Setting Value="/ActiveEcuC/vSet" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="3">
+                <Setting Value="/ActiveEcuC/CanTp" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="4">
+                <Setting Value="/ActiveEcuC/Com" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="5">
+                <Setting Value="/ActiveEcuC/ComM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="6">
+                <Setting Value="/ActiveEcuC/Dcm" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="7">
+                <Setting Value="/ActiveEcuC/Dem" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="8">
+                <Setting Value="/Spi/Spi" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="9">
+                <Setting Value="/Dio/Dio" Name="moduleEcucPath"/>
+            </Settings>
+            <Setting Value="D:\a_test.arxml" Name="filePath"/>
+        </Settings>
+        <Settings Name="1768359028637">
+            <Settings Name="0">
+                <Setting Value="/Base/Base" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="1">
+                <Setting Value="/ActiveEcuC/BswM" Name="moduleEcucPath"/>
+            </Settings>
+            <Setting Value="D:\AUTOSAR_TOOLs\S32K144_SIP\MICROSAR\CBD1800257_D01_S32K1xx\Applications\S32K144_Start_new_IAR.arxml" Name="filePath"/>
+        </Settings>
+        <Settings Name="1768359062768">
+            <Settings Name="0">
+                <Setting Value="/Base/Base" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="1">
+                <Setting Value="/ActiveEcuC/BswM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="10">
+                <Setting Value="/ActiveEcuC/Det" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="11">
+                <Setting Value="/Dio/Dio" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="12">
+                <Setting Value="/ActiveEcuC/EcuC" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="13">
+                <Setting Value="/ActiveEcuC/EcuM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="14">
+                <Setting Value="/Mcu/Mcu" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="15">
+                <Setting Value="/ActiveEcuC/Os" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="16">
+                <Setting Value="/ActiveEcuC/PduR" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="17">
+                <Setting Value="/Port/Port" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="18">
+                <Setting Value="/Resource/Resource" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="19">
+                <Setting Value="/ActiveEcuC/Rte" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="2">
+                <Setting Value="/ActiveEcuC/Can" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="20">
+                <Setting Value="/Spi/Spi" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="21">
+                <Setting Value="/ActiveEcuC/vSet" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="3">
+                <Setting Value="/ActiveEcuC/CanIf" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="4">
+                <Setting Value="/ActiveEcuC/CanSM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="5">
+                <Setting Value="/ActiveEcuC/CanTp" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="6">
+                <Setting Value="/ActiveEcuC/Com" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="7">
+                <Setting Value="/ActiveEcuC/ComM" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="8">
+                <Setting Value="/ActiveEcuC/Dcm" Name="moduleEcucPath"/>
+            </Settings>
+            <Settings Name="9">
+                <Setting Value="/ActiveEcuC/Dem" Name="moduleEcucPath"/>
+            </Settings>
+            <Setting Value="D:\AUTOSAR_TOOLs\S32K144_SIP\MICROSAR\CBD1800257_D01_S32K1xx\Applications\S32K144_Start_new_IAR.arxml" Name="filePath"/>
+        </Settings>
+    </Settings>
+</Settings>
