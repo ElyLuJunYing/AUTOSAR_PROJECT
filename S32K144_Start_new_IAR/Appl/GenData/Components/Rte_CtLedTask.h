@@ -45,6 +45,36 @@ extern "C"
 
 
 # ifndef RTE_CORE
+/**********************************************************************************************************************
+ * Init Values for unqueued S/R communication (primitive types only)
+ *********************************************************************************************************************/
+
+#  define Rte_InitValue_LampCnt_u8_Signal (0U)
+#  define Rte_InitValue_RearInteriorLight_Bool_Siganl (FALSE)
+# endif
+
+
+# define RTE_START_SEC_CODE
+# include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+/**********************************************************************************************************************
+ * API prototypes
+ *********************************************************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) Rte_Write_CtLedTask_LampCnt_u8_Signal(uint8 data); /* PRQA S 0850 */ /* MD_MSR_19.8 */
+FUNC(Std_ReturnType, RTE_CODE) Rte_Write_CtLedTask_RearInteriorLight_Bool_Siganl(boolean data); /* PRQA S 0850 */ /* MD_MSR_19.8 */
+
+# define RTE_STOP_SEC_CODE
+# include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+
+# ifndef RTE_CORE
+
+/**********************************************************************************************************************
+ * Rte_Write_<p>_<d> (explicit S/R communication with isQueued = false)
+ *********************************************************************************************************************/
+#  define Rte_Write_LampCnt_u8_Signal Rte_Write_CtLedTask_LampCnt_u8_Signal
+#  define Rte_Write_RearInteriorLight_Bool_Siganl Rte_Write_CtLedTask_RearInteriorLight_Bool_Siganl
+
 
 /**********************************************************************************************************************
  * Rte_Call_<p>_<o> (unmapped) for synchronous C/S communication

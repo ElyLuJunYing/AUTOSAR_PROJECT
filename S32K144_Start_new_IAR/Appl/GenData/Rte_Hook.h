@@ -52,6 +52,8 @@
  *  Rte_CallHook_DemSatellite_0_CBReadData_OccurrenceCounter_OccurenceCounter_ReadData_Start
  *  Rte_CallHook_DemSatellite_0_CBReadData_OdometerValue_OdometerValue_ReadData_Return
  *  Rte_CallHook_DemSatellite_0_CBReadData_OdometerValue_OdometerValue_ReadData_Start
+ *  Rte_ComHook_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx_SigTx
+ *  Rte_ComHook_sig_RearInteriorLight_omsg_Transmit_oCAN00_49a633c1_Tx_SigTx
  *  Rte_ReadHook_BswM_Request_ESH_PostRunRequest_0_requestedMode_Return
  *  Rte_ReadHook_BswM_Request_ESH_PostRunRequest_0_requestedMode_Start
  *  Rte_ReadHook_BswM_Request_ESH_PostRunRequest_1_requestedMode_Return
@@ -214,6 +216,10 @@
  *  Rte_Task_Dispatch
  *  Rte_Task_WaitEvent
  *  Rte_Task_WaitEventRet
+ *  Rte_WriteHook_CtLedTask_LampCnt_u8_Signal_Return
+ *  Rte_WriteHook_CtLedTask_LampCnt_u8_Signal_Start
+ *  Rte_WriteHook_CtLedTask_RearInteriorLight_Bool_Siganl_Return
+ *  Rte_WriteHook_CtLedTask_RearInteriorLight_Bool_Siganl_Start
  *  SchM_EnterHook_BswM_BSWM_EXCLUSIVE_AREA_0_Return
  *  SchM_EnterHook_BswM_BSWM_EXCLUSIVE_AREA_0_Start
  *  SchM_EnterHook_CanIf_CANIF_EXCLUSIVE_AREA_0_Return

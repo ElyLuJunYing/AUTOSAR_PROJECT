@@ -166,6 +166,8 @@ LedState ^= 0x01;
 
 
  Dio_WriteChannel(112,LedState);
+ Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
+ Rte_Write_RearInteriorLight_Bool_Siganl(1);  // 接口调用
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!

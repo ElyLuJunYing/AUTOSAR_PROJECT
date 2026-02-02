@@ -20,6 +20,10 @@
  *********************************************************************************************************************/
 
 
+/** Sender receiver - explicit write services */
+Std_ReturnType TSC_CtLedTask_Rte_Write_LampCnt_u8_Signal(uint8 data);
+Std_ReturnType TSC_CtLedTask_Rte_Write_RearInteriorLight_Bool_Siganl(boolean data);
+
 /** Service interfaces */
 Std_ReturnType TSC_CtLedTask_Rte_Call_UR_CN_CAN00_06ecbb07_GetCurrentComMode(ComM_ModeType *ComMode);
 Std_ReturnType TSC_CtLedTask_Rte_Call_UR_CN_CAN00_06ecbb07_GetMaxComMode(ComM_ModeType *ComMode);
