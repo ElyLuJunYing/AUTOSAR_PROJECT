@@ -243,10 +243,18 @@ FUNC(void, CtLedTask_CODE) CtLedTask_InitRunnable(void) /* PRQA S 0850 */ /* MD_
  *
  **********************************************************************************************************************
  *
+ * Input Interfaces:
+ * =================
+ *   Explicit S/R API:
+ *   -----------------
+ *   Std_ReturnType Rte_Read_RearLeftWindowPosition_u8_Signal(uint8 *data)
+ *   Std_ReturnType Rte_Read_RearRightWindowPosition_u8_Signal(uint8 *data)
+ *
  * Output Interfaces:
  * ==================
  *   Explicit S/R API:
  *   -----------------
+ *   Std_ReturnType Rte_Write_FrontInterLight_bool_Signal(boolean data)
  *   Std_ReturnType Rte_Write_LampCnt_u8_Signal(uint8 data)
  *   Std_ReturnType Rte_Write_RearInteriorLight_Bool_Siganl(boolean data)
  *
@@ -271,9 +279,60 @@ FUNC(void, CtLedTask_CODE) LedRunnable(void) /* PRQA S 0850 */ /* MD_MSR_19.8 */
   Std_ReturnType fct_status;
   boolean fct_error = 0;
 
+  uint8 Read_RearLeftWindowPosition_u8_Signal;
+  uint8 Read_RearRightWindowPosition_u8_Signal;
+
   /*************************************************
   * Direct Function Accesses
   *************************************************/
+
+  fct_status = TSC_CtLedTask_Rte_Read_RearLeftWindowPosition_u8_Signal(&Read_RearLeftWindowPosition_u8_Signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+    case RTE_E_UNCONNECTED:
+      fct_error = 1;
+      break;
+    case RTE_E_NEVER_RECEIVED:
+      fct_error = 1;
+      break;
+    case RTE_E_INVALID:
+      fct_error = 1;
+      break;
+    case RTE_E_MAX_AGE_EXCEEDED:
+      fct_error = 1;
+      break;
+  }
+
+  fct_status = TSC_CtLedTask_Rte_Read_RearRightWindowPosition_u8_Signal(&Read_RearRightWindowPosition_u8_Signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+    case RTE_E_UNCONNECTED:
+      fct_error = 1;
+      break;
+    case RTE_E_NEVER_RECEIVED:
+      fct_error = 1;
+      break;
+    case RTE_E_INVALID:
+      fct_error = 1;
+      break;
+    case RTE_E_MAX_AGE_EXCEEDED:
+      fct_error = 1;
+      break;
+  }
+
+  fct_status = TSC_CtLedTask_Rte_Write_FrontInterLight_bool_Signal(Rte_InitValue_FrontInterLight_bool_Signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+  }
 
   fct_status = TSC_CtLedTask_Rte_Write_LampCnt_u8_Signal(Rte_InitValue_LampCnt_u8_Signal);
   switch (fct_status)

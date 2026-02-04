@@ -20,7 +20,12 @@
  *********************************************************************************************************************/
 
 
+/** Sender receiver - explicit read services */
+Std_ReturnType TSC_CtLedTask_Rte_Read_RearLeftWindowPosition_u8_Signal(uint8 *data);
+Std_ReturnType TSC_CtLedTask_Rte_Read_RearRightWindowPosition_u8_Signal(uint8 *data);
+
 /** Sender receiver - explicit write services */
+Std_ReturnType TSC_CtLedTask_Rte_Write_FrontInterLight_bool_Signal(boolean data);
 Std_ReturnType TSC_CtLedTask_Rte_Write_LampCnt_u8_Signal(uint8 data);
 Std_ReturnType TSC_CtLedTask_Rte_Write_RearInteriorLight_Bool_Siganl(boolean data);
 
