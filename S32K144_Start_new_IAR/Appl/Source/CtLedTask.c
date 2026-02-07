@@ -182,11 +182,12 @@ LedState ^= 0x01;
  // 2.11、COM发生模拟式练习 (LedRunnable是每300ms调用一次)
  static boolean RearLeft_Window = 1;
  static boolean RearRight_Window = 1;
- static unsigned char cnt_invoke = 0;  // 创建计数器, 以设置特定时间调用Com_SendSignal
+ static unsigned char cnt_invoke = 10;  // 创建计数器, 以设置特定时间调用Com_SendSignal
 //  if (cnt_invoke%10 == 0)  // 每3秒调用一次Com_SendSignal (300ms调用一次LedRunnable, 10*300ms=3000ms=3s)
  if (cnt_invoke == 10)
  {
     Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 修改Signal
+    RearLeft_Window ^= TRUE;  // 切换状态, 按位异或 (+1)
     cnt_invoke = 0;  // 调用一次后, 计数器清零 10和0等效
  }
  cnt_invoke++;
