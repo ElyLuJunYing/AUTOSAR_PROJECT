@@ -179,19 +179,25 @@ LedState ^= 0x01;
 //  static unsigned char RearRightWindowPosition = 0;
 //  Rte_Read_CtLedTask_RearLeftWindowPosition_u8_Signal(&RearLeftWindowPosition);
 //  Rte_Read_CtLedTask_RearRightWindowPosition_u8_Signal(&RearRightWindowPosition);
- // 2.11、COM发生模拟式练习 (LedRunnable是每300ms调用一次)
- static boolean RearLeft_Window = 1;
- static boolean RearRight_Window = 1;
- static unsigned char cnt_invoke = 10;  // 创建计数器, 以设置特定时间调用Com_SendSignal
-//  if (cnt_invoke%10 == 0)  // 每3秒调用一次Com_SendSignal (300ms调用一次LedRunnable, 10*300ms=3000ms=3s)
- if (cnt_invoke == 10)
- {
-    Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 修改Signal
-    RearLeft_Window ^= TRUE;  // 切换状态, 按位异或 (+1)
-    cnt_invoke = 0;  // 调用一次后, 计数器清零 10和0等效
- }
- cnt_invoke++;
- Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window));  // 修改Signal
+//  // 2.11、COM发生模拟式练习 (LedRunnable是每300ms调用一次)
+//  static boolean RearLeft_Window = 1;
+//  static boolean RearRight_Window = 1;
+//  static unsigned char cnt_invoke = 10;  // 创建计数器, 以设置特定时间调用Com_SendSignal
+// //  if (cnt_invoke%10 == 0)  // 每3秒调用一次Com_SendSignal (300ms调用一次LedRunnable, 10*300ms=3000ms=3s)
+//  if (cnt_invoke == 10)
+//  {
+//     Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 可修改Signal
+//     RearLeft_Window ^= TRUE;  // 切换状态, 按位异或 (+1)
+//     cnt_invoke = 0;  // 调用一次后, 计数器清零 10和0等效
+//  }
+//  cnt_invoke++;
+//  Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window));  // 可修改Signal
+ // 2.12、signalgroup
+ static uint16 my_GSignal1 = 0x5A; // uint16
+ static uint16 my_GSignal2 = 0x8B;
+ Com_SendSignal(ComConf_ComGroupSignal_my_GSignal1, (&my_GSignal1));  // 可修改Signal (将值传递进缓存区)
+ Com_SendSignal(ComConf_ComGroupSignal_my_GSignal2, (&my_GSignal2));
+ Com_SendSignalGroup(ComConf_ComSignalGroup_My_SignalGroup);  // 统一将缓存发送IPdu到PduR里面
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!
