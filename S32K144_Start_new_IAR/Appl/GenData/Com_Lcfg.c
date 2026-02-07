@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Com_Lcfg.c
- *   Generation Time: 2026-02-07 15:40:09
+ *   Generation Time: 2026-02-07 18:18:32
  *           Project: S32K144_Start - Version 1.0
  *          Delivery: CBD1800257_D01
  *      Tool Version: DaVinci Configurator  5.18.37 SP1
@@ -291,15 +291,16 @@ CONST(Com_TxModeInfoType, COM_CONST) Com_TxModeInfo[4] = {  /* PRQA S 1514, 1533
   Element       Description
   TimePeriod    Cycle time factor.
   Periodic      TRUE if transmission mode contains a cyclic part.
+  RepCnt        Repetition count for replication of transmission requests plus one initial transmit.
 */ 
 #define COM_START_SEC_CONST_UNSPECIFIED
 /*lint -save -esym(961, 19.1) */
 #include "MemMap.h"  /* PRQA S 5087 */  /* MD_MSR_MemMap */
 /*lint -restore */
 CONST(Com_TxModeTrueType, COM_CONST) Com_TxModeTrue[2] = {  /* PRQA S 1514, 1533 */  /* MD_CSL_ObjectOnlyAccessedOnce */
-    /* Index    TimePeriod  Periodic        Referable Keys */
-  { /*     0 */        10u,     TRUE },  /* [/ActiveEcuC/Com/ComConfig/msg_MyECU_Lamp_oCAN00_818e1651_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit2_oCAN00_97205322_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit_oCAN00_0723e95e_Tx] */
-  { /*     1 */       300u,     TRUE }   /* [/ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
+    /* Index    TimePeriod  Periodic  RepCnt        Referable Keys */
+  { /*     0 */        10u,     TRUE,     0u },  /* [/ActiveEcuC/Com/ComConfig/msg_MyECU_Lamp_oCAN00_818e1651_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit2_oCAN00_97205322_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit_oCAN00_0723e95e_Tx] */
+  { /*     1 */       300u,     TRUE,     4u }   /* [/ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
 };
 #define COM_STOP_SEC_CONST_UNSPECIFIED
 /*lint -save -esym(961, 19.1) */
@@ -407,6 +408,7 @@ CONST(Com_TxPduInitValueType, COM_CONST) Com_TxPduInitValue[18] = {  /* PRQA S 1
   \brief  Contains all relevant information for Tx signals and group signals.
   \details
   Element             Description
+  Triggered           TRUE if signal or group signal has any 'TRIGGERED_*' transfer property.
   BitLength           Bit length of the signal or group signal.
   BitPosition         Little endian bit position of the signal or group signal within the I-PDU.
   ByteLength          Byte length of the signal or group signal.
@@ -420,12 +422,12 @@ CONST(Com_TxPduInitValueType, COM_CONST) Com_TxPduInitValue[18] = {  /* PRQA S 1
 #include "MemMap.h"  /* PRQA S 5087 */  /* MD_MSR_MemMap */
 /*lint -restore */
 CONST(Com_TxSigInfoType, COM_CONST) Com_TxSigInfo[5] = {  /* PRQA S 1514, 1533 */  /* MD_CSL_ObjectOnlyAccessedOnce */
-    /* Index    BitLength  BitPosition  ByteLength  BytePosition  TxBufferLength  TxBufferStartIdx  TxPduInfoIdx        Referable Keys */
-  { /*     0 */        1u,          0u,         0u,           0u,             1u,               0u,           0u },  /* [/ActiveEcuC/Com/ComConfig/RearLeft_Window, /ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
-  { /*     1 */        1u,          1u,         0u,           0u,             1u,               0u,           0u },  /* [/ActiveEcuC/Com/ComConfig/RearRight_Window, /ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
-  { /*     2 */        1u,          0u,         0u,           0u,             1u,              16u,           2u },  /* [/ActiveEcuC/Com/ComConfig/sig_FrontInterLight_omsg_Transmit2_oCAN00_72e0ad73_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit2_oCAN00_97205322_Tx] */
-  { /*     3 */        8u,          0u,         1u,           0u,             1u,               8u,           1u },  /* [/ActiveEcuC/Com/ComConfig/sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, /ActiveEcuC/Com/ComConfig/msg_MyECU_Lamp_oCAN00_818e1651_Tx] */
-  { /*     4 */        1u,          0u,         0u,           0u,             1u,              17u,           3u }   /* [/ActiveEcuC/Com/ComConfig/sig_RearInteriorLight_omsg_Transmit_oCAN00_49a633c1_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit_oCAN00_0723e95e_Tx] */
+    /* Index    Triggered  BitLength  BitPosition  ByteLength  BytePosition  TxBufferLength  TxBufferStartIdx  TxPduInfoIdx        Referable Keys */
+  { /*     0 */      TRUE,        1u,          0u,         0u,           0u,             1u,               0u,           0u },  /* [/ActiveEcuC/Com/ComConfig/RearLeft_Window, /ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
+  { /*     1 */     FALSE,        1u,          1u,         0u,           0u,             1u,               0u,           0u },  /* [/ActiveEcuC/Com/ComConfig/RearRight_Window, /ActiveEcuC/Com/ComConfig/MyECU2_Com_CAN_Network] */
+  { /*     2 */     FALSE,        1u,          0u,         0u,           0u,             1u,              16u,           2u },  /* [/ActiveEcuC/Com/ComConfig/sig_FrontInterLight_omsg_Transmit2_oCAN00_72e0ad73_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit2_oCAN00_97205322_Tx] */
+  { /*     3 */     FALSE,        8u,          0u,         1u,           0u,             1u,               8u,           1u },  /* [/ActiveEcuC/Com/ComConfig/sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, /ActiveEcuC/Com/ComConfig/msg_MyECU_Lamp_oCAN00_818e1651_Tx] */
+  { /*     4 */     FALSE,        1u,          0u,         0u,           0u,             1u,              17u,           3u }   /* [/ActiveEcuC/Com/ComConfig/sig_RearInteriorLight_omsg_Transmit_oCAN00_49a633c1_Tx, /ActiveEcuC/Com/ComConfig/msg_Transmit_oCAN00_0723e95e_Tx] */
 };
 #define COM_STOP_SEC_CONST_UNSPECIFIED
 /*lint -save -esym(961, 19.1) */

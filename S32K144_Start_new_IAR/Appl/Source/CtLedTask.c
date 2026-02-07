@@ -179,15 +179,18 @@ LedState ^= 0x01;
 //  static unsigned char RearRightWindowPosition = 0;
 //  Rte_Read_CtLedTask_RearLeftWindowPosition_u8_Signal(&RearLeftWindowPosition);
 //  Rte_Read_CtLedTask_RearRightWindowPosition_u8_Signal(&RearRightWindowPosition);
- // 2.11、COM发生模拟式练习
- static boolean RearLeft_Window = 0;
+ // 2.11、COM发生模拟式练习 (LedRunnable是每300ms调用一次)
+ static boolean RearLeft_Window = 1;
  static boolean RearRight_Window = 1;
- static unsigned char cnt_invoke = 0;
- if (cnt_invoke == 5)
-    RearLeft_Window ^= TRUE;  // 切换状态, 按位异或 (+1)
+ static unsigned char cnt_invoke = 0;  // 创建计数器, 以设置特定时间调用Com_SendSignal
+//  if (cnt_invoke%10 == 0)  // 每3秒调用一次Com_SendSignal (300ms调用一次LedRunnable, 10*300ms=3000ms=3s)
+ if (cnt_invoke == 10)
+ {
+    Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 修改Signal
+    cnt_invoke = 0;  // 调用一次后, 计数器清零 10和0等效
+ }
  cnt_invoke++;
- Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 修改Signal
- Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window)); 
+ Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window));  // 修改Signal
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!

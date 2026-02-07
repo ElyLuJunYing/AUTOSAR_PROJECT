@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Com_Cfg.h
- *   Generation Time: 2026-02-07 15:40:08
+ *   Generation Time: 2026-02-07 18:18:31
  *           Project: S32K144_Start - Version 1.0
  *          Delivery: CBD1800257_D01
  *      Tool Version: DaVinci Configurator  5.18.37 SP1
@@ -625,8 +625,8 @@
 #define COM_TXMODETRUE                                                STD_ON
 #define COM_DIRECTOFTXMODETRUE                                        STD_ON
 #define COM_PERIODICOFTXMODETRUE                                      STD_ON
-#define COM_REPCNTOFTXMODETRUE                                        STD_OFF  /**< Deactivateable: 'Com_TxModeTrue.RepCnt' Reason: 'the value of Com_RepCntOfTxModeTrue is always '0' due to this, the array is deactivated.' */
-#define COM_REPPERIODOFTXMODETRUE                                     STD_OFF  /**< Deactivateable: 'Com_TxModeTrue.RepPeriod' Reason: 'the value of Com_RepPeriodOfTxModeTrue is always '0' due to this, the array is deactivated.' */
+#define COM_REPCNTOFTXMODETRUE                                        STD_ON
+#define COM_REPPERIODOFTXMODETRUE                                     STD_ON
 #define COM_TIMEOFFSETOFTXMODETRUE                                    STD_OFF  /**< Deactivateable: 'Com_TxModeTrue.TimeOffset' Reason: 'the value of Com_TimeOffsetOfTxModeTrue is always '1' due to this, the array is deactivated.' */
 #define COM_TIMEPERIODOFTXMODETRUE                                    STD_ON
 #define COM_TXPDUCALLOUTFUNCPTR                                       STD_OFF  /**< Deactivateable: 'Com_TxPduCalloutFuncPtr' Reason: 'the array is deactivated because the size is 0 and the piece of data is in the configuration class: PRE_COMPILE' */
@@ -756,7 +756,7 @@
 #define COM_ONCHANGEIDXOFTXSIGINFO                                    STD_OFF  /**< Deactivateable: 'Com_TxSigInfo.OnChangeIdx' Reason: 'the optional indirection is deactivated because OnChangeUsedOfTxSigInfo is always 'FALSE' and the target of the indirection is of the Configuration Class 'PRE_COMPILE'.' */
 #define COM_ONCHANGEUSEDOFTXSIGINFO                                   STD_OFF  /**< Deactivateable: 'Com_TxSigInfo.OnChangeUsed' Reason: 'the optional indirection is deactivated because OnChangeUsedOfTxSigInfo is always 'FALSE' and the target of the indirection is of the Configuration Class 'PRE_COMPILE'.' */
 #define COM_STARTBYTEINPDUPOSITIONOFTXSIGINFO                         STD_ON
-#define COM_TRIGGEREDOFTXSIGINFO                                      STD_OFF  /**< Deactivateable: 'Com_TxSigInfo.Triggered' Reason: 'the value of Com_TriggeredOfTxSigInfo is always 'false' due to this, the array is deactivated.' */
+#define COM_TRIGGEREDOFTXSIGINFO                                      STD_ON
 #define COM_TXBUFFERENDIDXOFTXSIGINFO                                 STD_ON
 #define COM_TXBUFFERLENGTHOFTXSIGINFO                                 STD_ON
 #define COM_TXBUFFERSTARTIDXOFTXSIGINFO                               STD_ON
@@ -1215,6 +1215,8 @@
 #define COM_ISDEF_TXMODETRUEIDXOFTXMODEINFO                           STD_OFF
 #define COM_ISDEF_DIRECTOFTXMODETRUE                                  STD_OFF
 #define COM_ISDEF_PERIODICOFTXMODETRUE                                STD_OFF
+#define COM_ISDEF_REPCNTOFTXMODETRUE                                  STD_OFF
+#define COM_ISDEF_REPPERIODOFTXMODETRUE                               STD_OFF
 #define COM_ISDEF_TIMEPERIODOFTXMODETRUE                              STD_OFF
 #define COM_ISDEF_PDUGRPVECTORENDIDXOFTXPDUGRPINFO                    STD_OFF
 #define COM_ISDEF_PDUGRPVECTORSTARTIDXOFTXPDUGRPINFO                  STD_OFF
@@ -1237,6 +1239,7 @@
 #define COM_ISDEF_BYTELENGTHOFTXSIGINFO                               STD_OFF
 #define COM_ISDEF_BYTEPOSITIONOFTXSIGINFO                             STD_OFF
 #define COM_ISDEF_STARTBYTEINPDUPOSITIONOFTXSIGINFO                   STD_OFF
+#define COM_ISDEF_TRIGGEREDOFTXSIGINFO                                STD_OFF
 #define COM_ISDEF_TXBUFFERENDIDXOFTXSIGINFO                           STD_OFF
 #define COM_ISDEF_TXBUFFERLENGTHOFTXSIGINFO                           STD_OFF
 #define COM_ISDEF_TXBUFFERSTARTIDXOFTXSIGINFO                         STD_OFF
@@ -1334,6 +1337,8 @@
 #define COM_EQ2_TXMODETRUEIDXOFTXMODEINFO                             
 #define COM_EQ2_DIRECTOFTXMODETRUE                                    
 #define COM_EQ2_PERIODICOFTXMODETRUE                                  
+#define COM_EQ2_REPCNTOFTXMODETRUE                                    
+#define COM_EQ2_REPPERIODOFTXMODETRUE                                 
 #define COM_EQ2_TIMEPERIODOFTXMODETRUE                                
 #define COM_EQ2_PDUGRPVECTORENDIDXOFTXPDUGRPINFO                      
 #define COM_EQ2_PDUGRPVECTORSTARTIDXOFTXPDUGRPINFO                    
@@ -1356,6 +1361,7 @@
 #define COM_EQ2_BYTELENGTHOFTXSIGINFO                                 
 #define COM_EQ2_BYTEPOSITIONOFTXSIGINFO                               
 #define COM_EQ2_STARTBYTEINPDUPOSITIONOFTXSIGINFO                     
+#define COM_EQ2_TRIGGEREDOFTXSIGINFO                                  
 #define COM_EQ2_TXBUFFERENDIDXOFTXSIGINFO                             
 #define COM_EQ2_TXBUFFERLENGTHOFTXSIGINFO                             
 #define COM_EQ2_TXBUFFERSTARTIDXOFTXSIGINFO                           
@@ -1685,6 +1691,7 @@
 #define Com_GetTxModeFalseIdxOfTxModeInfo(Index)                      (Com_GetTxModeInfoOfPCConfig()[(Index)].TxModeFalseIdxOfTxModeInfo)
 #define Com_GetTxModeTrueIdxOfTxModeInfo(Index)                       (Com_GetTxModeInfoOfPCConfig()[(Index)].TxModeTrueIdxOfTxModeInfo)
 #define Com_IsPeriodicOfTxModeTrue(Index)                             ((Com_GetTxModeTrueOfPCConfig()[(Index)].PeriodicOfTxModeTrue) != FALSE)
+#define Com_GetRepCntOfTxModeTrue(Index)                              (Com_GetTxModeTrueOfPCConfig()[(Index)].RepCntOfTxModeTrue)
 #define Com_GetTimePeriodOfTxModeTrue(Index)                          (Com_GetTxModeTrueOfPCConfig()[(Index)].TimePeriodOfTxModeTrue)
 #define Com_IsTxPduGrpActive(Index)                                   ((Com_GetTxPduGrpActiveOfPCConfig()[(Index)]) != FALSE)
 #define Com_GetPduGrpVectorStartIdxOfTxPduGrpInfo(Index)              (Com_GetTxPduGrpInfoOfPCConfig()[(Index)].PduGrpVectorStartIdxOfTxPduGrpInfo)
@@ -1700,6 +1707,7 @@
 #define Com_GetBitPositionOfTxSigInfo(Index)                          (Com_GetTxSigInfoOfPCConfig()[(Index)].BitPositionOfTxSigInfo)
 #define Com_GetByteLengthOfTxSigInfo(Index)                           (Com_GetTxSigInfoOfPCConfig()[(Index)].ByteLengthOfTxSigInfo)
 #define Com_GetBytePositionOfTxSigInfo(Index)                         (Com_GetTxSigInfoOfPCConfig()[(Index)].BytePositionOfTxSigInfo)
+#define Com_IsTriggeredOfTxSigInfo(Index)                             ((Com_GetTxSigInfoOfPCConfig()[(Index)].TriggeredOfTxSigInfo) != FALSE)
 #define Com_GetTxBufferLengthOfTxSigInfo(Index)                       (Com_GetTxSigInfoOfPCConfig()[(Index)].TxBufferLengthOfTxSigInfo)
 #define Com_GetTxBufferStartIdxOfTxSigInfo(Index)                     (Com_GetTxSigInfoOfPCConfig()[(Index)].TxBufferStartIdxOfTxSigInfo)
 #define Com_GetTxPduInfoIdxOfTxSigInfo(Index)                         (Com_GetTxSigInfoOfPCConfig()[(Index)].TxPduInfoIdxOfTxSigInfo)
@@ -1769,7 +1777,8 @@
 #define Com_GetTxCyclicProcessingISRLockThreshold()                   Com_GetTxCyclicProcessingISRLockThresholdOfPCConfig()
 #define Com_GetTxIPduGroupISRLockThreshold()                          Com_GetTxIPduGroupISRLockThresholdOfPCConfig()
 #define Com_IsPeriodicOfTxModeFalse(Index)                            (((boolean)(Com_GetTimePeriodOfTxModeFalse(Index) == 10u)) != FALSE)  /**< TRUE if transmission mode contains a cyclic part. */
-#define Com_IsDirectOfTxModeTrue(Index)                               (((boolean)(Com_GetTimePeriodOfTxModeTrue(Index) == 300u)) != FALSE)  /**< TRUE if transmission mode contains a direct part. */
+#define Com_IsDirectOfTxModeTrue(Index)                               (((boolean)(Com_GetRepCntOfTxModeTrue(Index) == 4u)) != FALSE)  /**< TRUE if transmission mode contains a direct part. */
+#define Com_GetRepPeriodOfTxModeTrue(Index)                           ((Com_RepPeriodOfTxModeTrueType)((Index)))  /**< Repetition period factor for replication of transmission requests. */
 #define Com_GetPduGrpVectorEndIdxOfTxPduGrpInfo(Index)                ((Com_PduGrpVectorEndIdxOfTxPduGrpInfoType)((Com_GetPduGrpVectorStartIdxOfTxPduGrpInfo(Index) + 1u)))  /**< the end index of the 0:n relation pointing to Com_PduGrpVector */
 #define Com_IsPduGrpVectorUsedOfTxPduGrpInfo(Index)                   (((boolean)(Com_GetPduGrpVectorStartIdxOfTxPduGrpInfo(Index) != COM_NO_PDUGRPVECTORSTARTIDXOFTXPDUGRPINFO)) != FALSE)  /**< TRUE, if the 0:n relation has 1 relation pointing to Com_PduGrpVector */
 #define Com_GetExternalIdOfTxPduInfo(Index)                           ((Com_ExternalIdOfTxPduInfoType)((Index)))  /**< External ID used to call PduR_ComTransmit(). */
@@ -1947,6 +1956,8 @@
 #define Com_HasTxModeTrue()                                           (TRUE != FALSE)
 #define Com_HasDirectOfTxModeTrue()                                   (TRUE != FALSE)
 #define Com_HasPeriodicOfTxModeTrue()                                 (TRUE != FALSE)
+#define Com_HasRepCntOfTxModeTrue()                                   (TRUE != FALSE)
+#define Com_HasRepPeriodOfTxModeTrue()                                (TRUE != FALSE)
 #define Com_HasTimePeriodOfTxModeTrue()                               (TRUE != FALSE)
 #define Com_HasTxPduGrpActive()                                       (TRUE != FALSE)
 #define Com_HasTxPduGrpInfo()                                         (TRUE != FALSE)
@@ -1976,6 +1987,7 @@
 #define Com_HasByteLengthOfTxSigInfo()                                (TRUE != FALSE)
 #define Com_HasBytePositionOfTxSigInfo()                              (TRUE != FALSE)
 #define Com_HasStartByteInPduPositionOfTxSigInfo()                    (TRUE != FALSE)
+#define Com_HasTriggeredOfTxSigInfo()                                 (TRUE != FALSE)
 #define Com_HasTxBufferEndIdxOfTxSigInfo()                            (TRUE != FALSE)
 #define Com_HasTxBufferLengthOfTxSigInfo()                            (TRUE != FALSE)
 #define Com_HasTxBufferStartIdxOfTxSigInfo()                          (TRUE != FALSE)
@@ -2545,6 +2557,12 @@ typedef boolean Com_DirectOfTxModeTrueType;
 /**   \brief  value based type definition for Com_PeriodicOfTxModeTrue */
 typedef boolean Com_PeriodicOfTxModeTrueType;
 
+/**   \brief  value based type definition for Com_RepCntOfTxModeTrue */
+typedef uint8 Com_RepCntOfTxModeTrueType;
+
+/**   \brief  value based type definition for Com_RepPeriodOfTxModeTrue */
+typedef uint8 Com_RepPeriodOfTxModeTrueType;
+
 /**   \brief  value based type definition for Com_TimePeriodOfTxModeTrue */
 typedef uint16 Com_TimePeriodOfTxModeTrueType;
 
@@ -2622,6 +2640,9 @@ typedef uint8 Com_BytePositionOfTxSigInfoType;
 
 /**   \brief  value based type definition for Com_StartByteInPduPositionOfTxSigInfo */
 typedef uint8 Com_StartByteInPduPositionOfTxSigInfoType;
+
+/**   \brief  value based type definition for Com_TriggeredOfTxSigInfo */
+typedef boolean Com_TriggeredOfTxSigInfoType;
 
 /**   \brief  value based type definition for Com_TxBufferEndIdxOfTxSigInfo */
 typedef uint8 Com_TxBufferEndIdxOfTxSigInfoType;
@@ -2718,6 +2739,7 @@ typedef struct sCom_TxModeTrueType
 {
   Com_TimePeriodOfTxModeTrueType TimePeriodOfTxModeTrue;  /**< Cycle time factor. */
   Com_PeriodicOfTxModeTrueType PeriodicOfTxModeTrue;  /**< TRUE if transmission mode contains a cyclic part. */
+  Com_RepCntOfTxModeTrueType RepCntOfTxModeTrue;  /**< Repetition count for replication of transmission requests plus one initial transmit. */
 } Com_TxModeTrueType;
 
 /**   \brief  type used in Com_TxPduGrpInfo */
@@ -2739,6 +2761,7 @@ typedef struct sCom_TxPduInfoType
 /**   \brief  type used in Com_TxSigInfo */
 typedef struct sCom_TxSigInfoType
 {
+  Com_TriggeredOfTxSigInfoType TriggeredOfTxSigInfo;  /**< TRUE if signal or group signal has any 'TRIGGERED_*' transfer property. */
   Com_BitLengthOfTxSigInfoType BitLengthOfTxSigInfo;  /**< Bit length of the signal or group signal. */
   Com_BitPositionOfTxSigInfoType BitPositionOfTxSigInfo;  /**< Little endian bit position of the signal or group signal within the I-PDU. */
   Com_ByteLengthOfTxSigInfoType ByteLengthOfTxSigInfo;  /**< Byte length of the signal or group signal. */
@@ -3111,6 +3134,7 @@ extern CONST(Com_TxModeInfoType, COM_CONST) Com_TxModeInfo[4];
   Element       Description
   TimePeriod    Cycle time factor.
   Periodic      TRUE if transmission mode contains a cyclic part.
+  RepCnt        Repetition count for replication of transmission requests plus one initial transmit.
 */ 
 #define COM_START_SEC_CONST_UNSPECIFIED
 /*lint -save -esym(961, 19.1) */
@@ -3191,6 +3215,7 @@ extern CONST(Com_TxPduInitValueType, COM_CONST) Com_TxPduInitValue[18];
   \brief  Contains all relevant information for Tx signals and group signals.
   \details
   Element             Description
+  Triggered           TRUE if signal or group signal has any 'TRIGGERED_*' transfer property.
   BitLength           Bit length of the signal or group signal.
   BitPosition         Little endian bit position of the signal or group signal within the I-PDU.
   ByteLength          Byte length of the signal or group signal.
