@@ -51,6 +51,7 @@
  *********************************************************************************************************************/
 
 #include "Dio.h"
+#include "Com_Cfg.h"
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of include and declaration area >>          DO NOT CHANGE THIS COMMENT!
  *********************************************************************************************************************/
@@ -167,17 +168,26 @@ LedState ^= 0x01;
 
 
  Dio_WriteChannel(112,LedState);
- // 2.8、Datamapping和工程编译刷写
- Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
- Rte_Write_RearInteriorLight_Bool_Siganl(1);  // 接口调用
- // 2.9、DBC创建发生接受报文
- static boolean FrontInterLight = 0;
- FrontInterLight ^= TRUE;  // 切换状态, 按位异或 (+1)
- Rte_Write_FrontInterLight_bool_Signal(FrontInterLight);  // 接口调用
- static unsigned char RearLeftWindowPosition = 0;
- static unsigned char RearRightWindowPosition = 0;
- Rte_Read_CtLedTask_RearLeftWindowPosition_u8_Signal(&RearLeftWindowPosition);
- Rte_Read_CtLedTask_RearRightWindowPosition_u8_Signal(&RearRightWindowPosition);
+//  // 2.8、Datamapping和工程编译刷写
+//  Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
+//  Rte_Write_RearInteriorLight_Bool_Siganl(1);  // 接口调用
+//  // 2.9、DBC创建发生接受报文
+//  static boolean FrontInterLight = 0;
+//  FrontInterLight ^= TRUE;  // 切换状态, 按位异或 (+1)
+//  Rte_Write_FrontInterLight_bool_Signal(FrontInterLight);  // 接口调用
+//  static unsigned char RearLeftWindowPosition = 0;
+//  static unsigned char RearRightWindowPosition = 0;
+//  Rte_Read_CtLedTask_RearLeftWindowPosition_u8_Signal(&RearLeftWindowPosition);
+//  Rte_Read_CtLedTask_RearRightWindowPosition_u8_Signal(&RearRightWindowPosition);
+ // 2.11、COM发生模拟式练习
+ static boolean RearLeft_Window = 0;
+ static boolean RearRight_Window = 1;
+ static unsigned char cnt_invoke = 0;
+ if (cnt_invoke == 5)
+    RearLeft_Window ^= TRUE;  // 切换状态, 按位异或 (+1)
+ cnt_invoke++;
+ Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // 修改Signal
+ Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window)); 
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!
