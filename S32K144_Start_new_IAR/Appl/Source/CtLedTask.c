@@ -163,14 +163,30 @@ static int  LedCnt=0;
 
 LedCnt++;
 
-LedState ^= 0x01;
+LedState ^= 0x01;  // 反转状态, 按位异或 (+1)
 
 
 
- Dio_WriteChannel(112,LedState);
+ Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTD16,LedState);  // PTD16的LED灯, 下载完程序一直闪烁
+
+ // 3.2、PORT点亮LED灯
+ static boolean RearLeft_Window = 1;   // 手动信号
+ RearLeft_Window = Dio_ReadChannel(DioConf_DioChannel_DioChannel_PTC12);  // (读取)PTC12的开关KEY
+ Com_SendSignal(ComConf_ComSignal_RearLeft_Window, (&RearLeft_Window));  // (发送)发送报文显示LED灯状态
+ if (RearLeft_Window == 1)
+ {
+    Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTD0, 0);  // (写入)PTD0的LED灯点亮(注意是低电平亮)
+ }
+ else // if (RearLeft_Window == 0)
+ {
+    Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTD0, 1);  // (写入)PTD0的LED灯熄灭
+ }
+ 
+
 //  // 2.8、Datamapping和工程编译刷写
 //  Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
 //  Rte_Write_RearInteriorLight_Bool_Siganl(1);  // 接口调用
+
 //  // 2.9、DBC创建发生接受报文
 //  static boolean FrontInterLight = 0;
 //  FrontInterLight ^= TRUE;  // 切换状态, 按位异或 (+1)
@@ -179,6 +195,7 @@ LedState ^= 0x01;
 //  static unsigned char RearRightWindowPosition = 0;
 //  Rte_Read_CtLedTask_RearLeftWindowPosition_u8_Signal(&RearLeftWindowPosition);
 //  Rte_Read_CtLedTask_RearRightWindowPosition_u8_Signal(&RearRightWindowPosition);
+
 //  // 2.11、COM发生模拟式练习 (LedRunnable是每300ms调用一次)
 //  static boolean RearLeft_Window = 1;
 //  static boolean RearRight_Window = 1;
@@ -192,12 +209,13 @@ LedState ^= 0x01;
 //  }
 //  cnt_invoke++;
 //  Com_SendSignal(ComConf_ComSignal_RearRight_Window, (&RearRight_Window));  // 可修改Signal
- // 2.12、signalgroup
- static uint16 my_GSignal1 = 0x5A; // uint16
- static uint16 my_GSignal2 = 0x8B;
- Com_SendSignal(ComConf_ComGroupSignal_my_GSignal1, (&my_GSignal1));  // 可修改Signal (将值传递进缓存区)
- Com_SendSignal(ComConf_ComGroupSignal_my_GSignal2, (&my_GSignal2));
- Com_SendSignalGroup(ComConf_ComSignalGroup_My_SignalGroup);  // 统一将缓存发送IPdu到PduR里面
+
+//  // 2.12、signalgroup
+//  static uint16 my_GSignal1 = 0x5A; // uint16
+//  static uint16 my_GSignal2 = 0x8B;
+//  Com_SendSignal(ComConf_ComGroupSignal_my_GSignal1, (&my_GSignal1));  // 可修改Signal (将值传递进缓存区)
+//  Com_SendSignal(ComConf_ComGroupSignal_my_GSignal2, (&my_GSignal2));
+//  Com_SendSignalGroup(ComConf_ComSignalGroup_My_SignalGroup);  // 统一将缓存发送IPdu到PduR里面
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!

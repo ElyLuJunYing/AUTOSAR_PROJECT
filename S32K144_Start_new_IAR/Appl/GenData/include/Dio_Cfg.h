@@ -278,6 +278,32 @@ extern "C" {
 /** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
 #define  DioConf_DioChannel_DioChannel_PTD16 ((uint16)0x0070U)
 
+/**
+* @brief          Symbolic name for the channel DioChannel_PTD0.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_DioChannel_PTD0 ((uint16)0x0060U)
+
+/* ---------- DioPort_C ---------- */
+
+/**
+* @brief          Symbolic name for the port DioPort_C.
+*
+*/
+#define DioConf_DioPort_DioPort_C  ((uint8)0x02U)
+
+/**
+* @brief          Symbolic name for the channel DioChannel_PTC12.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_DioChannel_PTC12 ((uint16)0x004cU)
+
 
 /*=================================================================================================
 *                                             ENUMS
