@@ -52,6 +52,7 @@
 
 #include "Dio.h"
 #include "Com_Cfg.h"
+#include "Adc.h"
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of include and declaration area >>          DO NOT CHANGE THIS COMMENT!
  *********************************************************************************************************************/
@@ -181,7 +182,17 @@ LedState ^= 0x01;  // 反转状态, 按位异或 (+1)
  {
     Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTD0, 1);  // (写入)PTD0的LED灯熄灭
  }
- 
+
+ // 3.5.1、ADC练习
+ static uint8 Group = 0;  // Group Id
+ Adc_StartGroupConversion(Group);  // 启动ADC转换
+ static uint16 G0_ReadBuffer[1*1] = {0};  // 采样精度12bit, Channel * StreamSampleNum
+ static uint8 state_Read = E_NOT_OK;  // 读取状态, E_OK表示成功, E_NOT_OK表示失败
+ state_Read = Adc_ReadGroup(Group, G0_ReadBuffer);  // 读取ADC转换结果到缓冲区
+ // 发送到CAN总线观测ADC值
+ static uint8 convert_read = 0;  // 0-4095-> 0-204
+ convert_read = (uint8)(G0_ReadBuffer[0] / 20u);
+ Com_SendSignal(ComConf_ComSignal_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, (&convert_read));  // 可修改Signal
 
 //  // 2.8、Datamapping和工程编译刷写
 //  Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
