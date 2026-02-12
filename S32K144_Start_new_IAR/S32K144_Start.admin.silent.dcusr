@@ -135,6 +135,12 @@
             <Setting Value="ASC" Name="nattable.sortDirections"/>
             <Setting Value="1" Name="nattable.sortIndexes"/>
         </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.MICROSAR.Os.OsIsr">
+            <Setting Value="0,1,2,3,4,5,6,7,8,9,10,11,12," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:21,1:204,2:124,3:166,4:192,5:179,6:177,7:162,8:270,9:223,10:175,11:122,12:153," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
         <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.MICROSAR.PduR.PduRRoutingTables.PduRRoutingTable.PduRRoutingPath">
             <Setting Value="0,1,2,3,4," Name="nattable.BODY.columnIndexOrder"/>
             <Setting Value="0:21,1:402,2:242,3:205,4:289," Name="nattable.BODY.columnWidth.sizes"/>
@@ -195,6 +201,18 @@
             <Setting Value="ASC" Name="nattable.sortDirections"/>
             <Setting Value="1" Name="nattable.sortIndexes"/>
         </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuClockSettingConfig.McuClockReferencePoint">
+            <Setting Value="0,1,2,3," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:274,2:205,3:324," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuClockSettingConfig.McuPeripheralClockConfig">
+            <Setting Value="0,1,2,3,4,5,6,7," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:245,2:108,3:210,4:206,5:234,6:203,7:241," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
         <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuModeSettingConf">
             <Setting Value="0,1,2,3," Name="nattable.BODY.columnIndexOrder"/>
             <Setting Value="0:20,1:206,2:80,3:130," Name="nattable.BODY.columnWidth.sizes"/>
@@ -226,16 +244,19 @@
     </Settings>
     <Settings Name="com.vector.cfg.datamining.queryhistory">
         <Settings Name="0">
+            <Setting Value="ADC_ALTCLK1" Name="query"/>
+        </Settings>
+        <Settings Name="1">
             <Setting Value="validation" Name="query"/>
         </Settings>
-        <Settings Name="1"/>
-        <Settings Name="2">
+        <Settings Name="2"/>
+        <Settings Name="3">
             <Setting Value="valida" Name="query"/>
         </Settings>
-        <Settings Name="3">
+        <Settings Name="4">
             <Setting Value="McuPinConfiguration" Name="query"/>
         </Settings>
-        <Settings Name="4">
+        <Settings Name="5">
             <Setting Value="isUserDefined" Name="query"/>
         </Settings>
     </Settings>
