@@ -125,6 +125,13 @@ FUNC(void, CtLedTask_CODE) CtLedTask_InitRunnable(void) /* PRQA S 0850 */ /* MD_
  * DO NOT CHANGE THIS COMMENT!           << Start of runnable implementation >>             DO NOT CHANGE THIS COMMENT!
  * Symbol: CtLedTask_InitRunnable
  *********************************************************************************************************************/
+ // 3.5.1、ADC练习
+ // 存储ADC转换结果的缓冲区, 采样精度12bit, Buffer Size: Channel * StreamSampleNum
+ static uint16 G0_ResultBuffer[1*1] = {0};
+ static uint8 Group = 0;  // Group Id
+ Adc_SetupResultBuffer(Group, G0_ResultBuffer);  // 设置ADC结果缓冲区, StreamSampleNum=1
+ // 使能ADC转换完成通知 
+ Adc_EnableGroupNotification(Group);
 
 Rte_Call_UR_CN_CAN00_06ecbb07_RequestComMode(COMM_FULL_COMMUNICATION);
 /**********************************************************************************************************************
@@ -186,13 +193,6 @@ LedState ^= 0x01;  // 反转状态, 按位异或 (+1)
  // 3.5.1、ADC练习
  static uint8 Group = 0;  // Group Id
  Adc_StartGroupConversion(Group);  // 启动ADC转换
- static uint16 G0_ReadBuffer[1*1] = {0};  // 采样精度12bit, Channel * StreamSampleNum
- static uint8 state_Read = E_NOT_OK;  // 读取状态, E_OK表示成功, E_NOT_OK表示失败
- state_Read = Adc_ReadGroup(Group, G0_ReadBuffer);  // 读取ADC转换结果到缓冲区
- // 发送到CAN总线观测ADC值
- static uint8 convert_read = 0;  // 0-4095-> 0-204
- convert_read = (uint8)(G0_ReadBuffer[0] / 20u);
- Com_SendSignal(ComConf_ComSignal_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, (&convert_read));  // 可修改Signal
 
 //  // 2.8、Datamapping和工程编译刷写
 //  Rte_Write_LampCnt_u8_Signal(LedCnt);  // 接口调用
@@ -233,6 +233,20 @@ LedState ^= 0x01;  // 反转状态, 按位异或 (+1)
  *********************************************************************************************************************/
 }
 
+// 3.5.1、ADC转换
+// 转换完成通知函数
+void Adc_Group0Notification(void)
+{
+ // 读取ADC转换结果
+ static uint8 Group = 0;  // Group Id
+ static uint16 G0_ReadBuffer[1] = {0};  // 采样精度12bit; Channel
+ static uint8 state_Read = E_NOT_OK;  // 读取状态, E_OK表示成功, E_NOT_OK表示失败
+ state_Read = Adc_ReadGroup(Group, G0_ReadBuffer);  // 读取ADC转换结果到缓冲区
+ // 发送到CAN总线观测ADC值
+ static uint8 convert_read = 0;  // 0-4095-> 0-204
+ convert_read = (uint8)(G0_ReadBuffer[0] / 20u);
+ Com_SendSignal(ComConf_ComSignal_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, (&convert_read));  // 可修改Signal
+}
 
 #define CtLedTask_STOP_SEC_CODE
 #include "CtLedTask_MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
