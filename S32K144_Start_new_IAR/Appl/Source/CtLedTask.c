@@ -53,6 +53,7 @@
 #include "Dio.h"
 #include "Com_Cfg.h"
 #include "Adc.h"
+#include "Pwm.h"
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of include and declaration area >>          DO NOT CHANGE THIS COMMENT!
  *********************************************************************************************************************/
@@ -239,13 +240,24 @@ void Adc_Group0Notification(void)
 {
  // 读取ADC转换结果
  static uint8 Group = 0;  // Group Id
- static uint16 G0_ReadBuffer[1] = {0};  // 采样精度12bit; Channel
+ static uint16 G0_ReadBuffer[1] = {0};  // 采样精度12bit; [Channel]
  static uint8 state_Read = E_NOT_OK;  // 读取状态, E_OK表示成功, E_NOT_OK表示失败
  state_Read = Adc_ReadGroup(Group, G0_ReadBuffer);  // 读取ADC转换结果到缓冲区
  // 发送到CAN总线观测ADC值
- static uint8 convert_read = 0;  // 0-4095-> 0-204
- convert_read = (uint8)(G0_ReadBuffer[0] / 20u);
+ static uint8 convert_read = 0;  // 0-4095 -> 0-255
+ convert_read = (uint8)(G0_ReadBuffer[0] / 16u);  // 0-255: / 16u; 0-204: / 20u
  Com_SendSignal(ComConf_ComSignal_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx, (&convert_read));  // 可修改Signal
+
+ 
+ // 3.7、PWM练习
+ // 2^12=4096, 2^15=32768
+ // ADC采样结果 映射为 占空比, 0-4095 -> 0-32767
+ uint16 DutyCycle = 0x4000;  // 占空比, 0x4000对应50%, 0x8000对应100%
+ DutyCycle = (uint16)(G0_ReadBuffer[0] * 8u);  // 0-32768: * 8u
+ Pwm_SetDutyCycle(0, DutyCycle);  // 设置PWM占空比, 可修改PWM通道和占空比值
+ // 获取PWM输出状态
+ static Pwm_OutputStateType pwm_output;  // (无初始化则为0) PWM输出状态, 0表示低电平, 1表示高电平
+ pwm_output = Pwm_GetOutputState(0);
 }
 
 #define CtLedTask_STOP_SEC_CODE
