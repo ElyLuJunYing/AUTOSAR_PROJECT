@@ -68,6 +68,16 @@ Std_ReturnType TSC_Test_SWC_Rte_Write_Test_SWC_Write_Element(uint8 data)
 
 
 
+Std_ReturnType TSC_Test_SWC_Rte_Write_Voltage_Record_Write_St_Signal(const Voltage_Record *data)
+{
+  return Rte_Write_Voltage_Record_Write_St_Signal(data);
+}
+
+Std_ReturnType TSC_Test_SWC_Rte_Write_Voltage_Write_u16_Signal(Voltage_uint16 data)
+{
+  return Rte_Write_Voltage_Write_u16_Signal(data);
+}
+
 
 
 

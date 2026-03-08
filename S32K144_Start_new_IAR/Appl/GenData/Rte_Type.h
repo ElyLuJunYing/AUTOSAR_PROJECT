@@ -42,6 +42,13 @@ typedef uint8 Dcm_Data4ByteType[4];
 # define Rte_TypeDef_Dem_MaxDataValueType
 typedef uint8 Dem_MaxDataValueType[4];
 
+# define Rte_TypeDef_Voltage_Record
+typedef struct
+{
+  uint8 Current;
+  uint16 Voltage;
+} Voltage_Record;
+
 # define Rte_TypeDef_BswM_ESH_Mode
 typedef uint8 BswM_ESH_Mode;
 
@@ -174,6 +181,9 @@ typedef uint8 EcuM_UserType;
 # define Rte_TypeDef_TimeInMicrosecondsType
 typedef uint32 TimeInMicrosecondsType;
 
+# define Rte_TypeDef_Voltage_uint16
+typedef uint16 Voltage_uint16;
+
 
 # ifndef RTE_SUPPRESS_UNUSED_DATATYPES
 /**********************************************************************************************************************
@@ -193,6 +203,19 @@ typedef uint8 NvM_RequestResultType;
 typedef uint8 NvM_ServiceIdType;
 
 # endif
+
+
+/**********************************************************************************************************************
+ * Constant value definitions
+ *********************************************************************************************************************/
+
+# define RTE_START_SEC_CONST_UNSPECIFIED
+# include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+extern CONST(Voltage_Record, RTE_CONST) Rte_C_Voltage_Record_0; /* PRQA S 0850 */ /* MD_MSR_19.8 */
+
+# define RTE_STOP_SEC_CONST_UNSPECIFIED
+# include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
 # include "Rte_DataHandleType.h"
 
 /**********************************************************************************************************************

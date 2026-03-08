@@ -137,6 +137,9 @@
          "Rte_InitValue_Test_SWC_Write_Element" : {
             "1b53a558b31c63acea001c0c155b637a" : {}
          },
+         "Rte_InitValue_Voltage_Write_u16_Signal" : {
+            "1b53a558b31c63acea001c0c155b637a" : {}
+         },
          "Rte_Read_Test_SWC_Read_Element" : {
             "b7ea013bbea5bf53f5a96b6b26f1b3da" : {}
          },
@@ -146,7 +149,19 @@
          "Rte_Write_Test_SWC_Test_SWC_Write_Element" : {
             "1e5deb2028b2518cd9545c187afb2f6d" : {}
          },
+         "Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal" : {
+            "4236c148305edc0e18ed431fc1699493" : {}
+         },
+         "Rte_Write_Test_SWC_Voltage_Write_u16_Signal" : {
+            "4236c148305edc0e18ed431fc1699493" : {}
+         },
          "Rte_Write_Test_SWC_Write_Element" : {
+            "03daf22f51dd97e8ae70665f6ca9c300" : {}
+         },
+         "Rte_Write_Voltage_Record_Write_St_Signal" : {
+            "03daf22f51dd97e8ae70665f6ca9c300" : {}
+         },
+         "Rte_Write_Voltage_Write_u16_Signal" : {
             "03daf22f51dd97e8ae70665f6ca9c300" : {}
          }
       },

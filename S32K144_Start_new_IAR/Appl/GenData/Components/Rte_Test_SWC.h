@@ -67,6 +67,7 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
 
 #  define Rte_InitValue_Test_SWC_Read_Element (0U)
 #  define Rte_InitValue_Test_SWC_Write_Element (0U)
+#  define Rte_InitValue_Voltage_Write_u16_Signal (0U)
 # endif
 
 
@@ -84,6 +85,10 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
  *********************************************************************************************************************/
 #  define Rte_Write_Test_SWC_Write_Element Rte_Write_Test_SWC_Test_SWC_Write_Element
 #  define Rte_Write_Test_SWC_Test_SWC_Write_Element(data) (Rte_Test_SWC_Comp_Test_SWC_Write_Element = (data), ((Std_ReturnType)RTE_E_OK)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
+#  define Rte_Write_Voltage_Record_Write_St_Signal Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal
+#  define Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal(data) (RTE_E_OK) /* PRQA S 3453 */ /* MD_MSR_19.7 */
+#  define Rte_Write_Voltage_Write_u16_Signal Rte_Write_Test_SWC_Voltage_Write_u16_Signal
+#  define Rte_Write_Test_SWC_Voltage_Write_u16_Signal(data) (RTE_E_OK) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 
 
 # endif /* !defined(RTE_CORE) */

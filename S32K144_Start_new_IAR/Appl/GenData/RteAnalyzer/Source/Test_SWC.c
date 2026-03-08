@@ -42,6 +42,19 @@
  * DO NOT CHANGE THIS COMMENT!           << End of version logging area >>                  DO NOT CHANGE THIS COMMENT!
  *********************************************************************************************************************/
 
+/**********************************************************************************************************************
+ *
+ * AUTOSAR Modelling Object Descriptions
+ *
+ **********************************************************************************************************************
+ *
+ * Data Types:
+ * ===========
+ * Voltage_uint16
+ *   
+ *
+ *********************************************************************************************************************/
+
 #include "Rte_Test_SWC.h" /* PRQA S 0857 */ /* MD_MSR_1.1_857 */
 #include "TSC_Test_SWC.h"
 
@@ -66,7 +79,15 @@
  *
  * Primitive Types:
  * ================
+ * Voltage_uint16: Integer in interval [0...65535]
+ * uint16: Integer in interval [0...65535] (standard type)
  * uint8: Integer in interval [0...255] (standard type)
+ *
+ * Record Types:
+ * =============
+ * Voltage_Record: Record with elements
+ *   Current of type uint8
+ *   Voltage of type uint16
  *
  *********************************************************************************************************************/
 
@@ -169,6 +190,15 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_19
  *
  **********************************************************************************************************************
  *
+ * Output Interfaces:
+ * ==================
+ *   Explicit S/R API:
+ *   -----------------
+ *   Std_ReturnType Rte_Write_Voltage_Record_Write_St_Signal(const Voltage_Record *data)
+ *   Std_ReturnType Rte_Write_Voltage_Write_u16_Signal(Voltage_uint16 data)
+ *
+ **********************************************************************************************************************
+ *
  * Runnable prototype:
  * ===================
  *   void Test_SWC_Service_Operation(uint8 arg_in, uint8 *arg_out)
@@ -190,6 +220,32 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, 
  * DO NOT CHANGE THIS COMMENT!           << Start of runnable implementation >>             DO NOT CHANGE THIS COMMENT!
  * Symbol: Test_SWC_Service_Operation
  *********************************************************************************************************************/
+
+  Std_ReturnType fct_status;
+  boolean fct_error = 0;
+
+  Voltage_Record Write_Voltage_Record_Write_St_Signal;
+
+  /*************************************************
+  * Direct Function Accesses
+  *************************************************/
+
+  (void)memset(&Write_Voltage_Record_Write_St_Signal, 0, sizeof(Write_Voltage_Record_Write_St_Signal));
+  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Record_Write_St_Signal(&Write_Voltage_Record_Write_St_Signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+  }
+
+  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Write_u16_Signal(Rte_InitValue_Voltage_Write_u16_Signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+  }
 
 
 /**********************************************************************************************************************

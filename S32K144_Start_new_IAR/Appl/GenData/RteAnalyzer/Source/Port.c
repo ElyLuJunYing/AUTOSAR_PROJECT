@@ -78,6 +78,7 @@
  * EcuM_UserType: Integer in interval [0...255]
  * NetworkHandleType: Integer in interval [0...255]
  * TimeInMicrosecondsType: Integer in interval [0...4294967295]
+ * Voltage_uint16: Integer in interval [0...65535]
  * boolean: Boolean (standard type)
  * sint8: Integer in interval [-128...127] (standard type)
  * uint16: Integer in interval [0...65535] (standard type)
@@ -127,6 +128,12 @@
  * Dcm_Data2ByteType: Array with 2 element(s) of type uint8
  * Dcm_Data4ByteType: Array with 4 element(s) of type uint8
  * Dem_MaxDataValueType: Array with 4 element(s) of type uint8
+ *
+ * Record Types:
+ * =============
+ * Voltage_Record: Record with elements
+ *   Current of type uint8
+ *   Voltage of type uint16
  *
  *********************************************************************************************************************/
 
