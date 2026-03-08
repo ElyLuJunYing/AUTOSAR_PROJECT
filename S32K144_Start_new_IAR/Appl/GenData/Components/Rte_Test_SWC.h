@@ -98,9 +98,11 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
 
 # ifndef RTE_CORE
 #  define RTE_RUNNABLE_Test_SWC_Runnable Test_SWC_Runnable
+#  define RTE_RUNNABLE_Test_SWC_Service_Operation Test_SWC_Service_Operation
 # endif
 
 FUNC(void, Test_SWC_CODE) Test_SWC_Runnable(void); /* PRQA S 0850, 3451 */ /* MD_MSR_19.8, MD_Rte_3451 */
+FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, AUTOMATIC, RTE_TEST_SWC_APPL_VAR) arg_out); /* PRQA S 0850 */ /* MD_MSR_19.8 */
 
 # define Test_SWC_STOP_SEC_CODE
 # include "Test_SWC_MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */

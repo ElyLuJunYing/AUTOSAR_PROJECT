@@ -158,6 +158,45 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_19
  *********************************************************************************************************************/
 }
 
+/**********************************************************************************************************************
+ *
+ * Runnable Entity Name: Test_SWC_Service_Operation
+ *
+ *---------------------------------------------------------------------------------------------------------------------
+ *
+ * Executed if at least one of the following trigger conditions occurred:
+ *   - triggered by server invocation for OperationPrototype <Operation> of PortPrototype <Test_SWC_Service>
+ *
+ **********************************************************************************************************************
+ *
+ * Runnable prototype:
+ * ===================
+ *   void Test_SWC_Service_Operation(uint8 arg_in, uint8 *arg_out)
+ *
+ *********************************************************************************************************************/
+/**********************************************************************************************************************
+ * DO NOT CHANGE THIS COMMENT!           << Start of documentation area >>                  DO NOT CHANGE THIS COMMENT!
+ * Symbol: Test_SWC_Service_Operation_doc
+ *********************************************************************************************************************/
+
+
+/**********************************************************************************************************************
+ * DO NOT CHANGE THIS COMMENT!           << End of documentation area >>                    DO NOT CHANGE THIS COMMENT!
+ *********************************************************************************************************************/
+
+FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, AUTOMATIC, RTE_TEST_SWC_APPL_VAR) arg_out) /* PRQA S 0850 */ /* MD_MSR_19.8 */
+{
+/**********************************************************************************************************************
+ * DO NOT CHANGE THIS COMMENT!           << Start of runnable implementation >>             DO NOT CHANGE THIS COMMENT!
+ * Symbol: Test_SWC_Service_Operation
+ *********************************************************************************************************************/
+
+
+/**********************************************************************************************************************
+ * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!
+ *********************************************************************************************************************/
+}
+
 
 #define Test_SWC_STOP_SEC_CODE
 #include "Test_SWC_MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */

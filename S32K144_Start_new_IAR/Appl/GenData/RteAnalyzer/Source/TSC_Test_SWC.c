@@ -66,6 +66,33 @@ Std_ReturnType TSC_Test_SWC_Rte_Write_Test_SWC_Write_Element(uint8 data)
 
 
 
+
+
+
+
+
+
+     /* Client Server Interfaces: */
+
+
+     /* Service calls */
+
+
+     /* Mode Interfaces */
+
+
+
+
+     /* Trigger Interfaces */
+
+     /* Inter-Runnable variables */
+
+
+
+
+
+
+
      /* Test_SWC */
       /* Test_SWC */
 

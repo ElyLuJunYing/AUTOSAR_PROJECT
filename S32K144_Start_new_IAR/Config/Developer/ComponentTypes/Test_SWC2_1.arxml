@@ -51,6 +51,22 @@
               </PROVIDED-COM-SPECS>
               <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Test_SWC_ReadWrite</PROVIDED-INTERFACE-TREF>
             </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="14699C75-8108-48AC-8067-00A1A6EFF76D">
+              <SHORT-NAME>Test_SWC2_Client</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/Test_SWC_CS/Operation</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/Test_SWC_CS</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
           </PORTS>
           <INTERNAL-BEHAVIORS>
             <SWC-INTERNAL-BEHAVIOR UUID="E5AB44DD-25A2-4432-85DF-417BF172D203">
@@ -92,6 +108,15 @@
                       </ACCESSED-VARIABLE>
                     </VARIABLE-ACCESS>
                   </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="E0611028-93F5-4AF6-80EA-11DB35C01B3E">
+                      <SHORT-NAME>SC_Test_SWC2_Client_Operation</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Test_SWC2/Test_SWC2_Client</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/Test_SWC_CS/Operation</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
                 </RUNNABLE-ENTITY>
                 <RUNNABLE-ENTITY UUID="C2A4DFC0-9AC2-4505-8EC9-0780BCC666E8">
                   <SHORT-NAME>Test_SWC2_Init</SHORT-NAME>

@@ -52,6 +52,8 @@
  *  Rte_CallHook_DemSatellite_0_CBReadData_OccurrenceCounter_OccurenceCounter_ReadData_Start
  *  Rte_CallHook_DemSatellite_0_CBReadData_OdometerValue_OdometerValue_ReadData_Return
  *  Rte_CallHook_DemSatellite_0_CBReadData_OdometerValue_OdometerValue_ReadData_Start
+ *  Rte_CallHook_Test_SWC2_Test_SWC2_Client_Operation_Return
+ *  Rte_CallHook_Test_SWC2_Test_SWC2_Client_Operation_Start
  *  Rte_ComHook_sig_FrontInterLight_omsg_Transmit2_oCAN00_72e0ad73_Tx_SigTx
  *  Rte_ComHook_sig_LampCnt_omsg_MyECU_Lamp_oCAN00_f37e68ea_Tx_SigTx
  *  Rte_ComHook_sig_RearInteriorLight_omsg_Transmit_oCAN00_49a633c1_Tx_SigTx
@@ -219,6 +221,8 @@
  *  Rte_Runnable_Test_SWC2_Test_SWC2_Runnable_Start
  *  Rte_Runnable_Test_SWC_Test_SWC_Runnable_Return
  *  Rte_Runnable_Test_SWC_Test_SWC_Runnable_Start
+ *  Rte_Runnable_Test_SWC_Test_SWC_Service_Operation_Return
+ *  Rte_Runnable_Test_SWC_Test_SWC_Service_Operation_Start
  *  Rte_SwitchAckHook_Dcm_DcmEcuReset_DcmEcuReset_Return
  *  Rte_SwitchAckHook_Dcm_DcmEcuReset_DcmEcuReset_Start
  *  Rte_SwitchHook_BswM_Switch_ESH_ModeSwitch_BswM_MDGP_ESH_Mode_Return

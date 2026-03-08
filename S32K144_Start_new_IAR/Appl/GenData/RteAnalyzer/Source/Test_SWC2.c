@@ -129,6 +129,13 @@ FUNC(void, Test_SWC2_CODE) Test_SWC2_Init(void) /* PRQA S 0850 */ /* MD_MSR_19.8
  *   -----------------
  *   Std_ReturnType Rte_Write_Test_SWC2_Write_Element(uint8 data)
  *
+ * Client/Server Interfaces:
+ * =========================
+ *   Server Invocation:
+ *   ------------------
+ *   Std_ReturnType Rte_Call_Test_SWC2_Client_Operation(uint8 arg_in, uint8 *arg_out)
+ *     Synchronous Server Invocation. Timeout: None
+ *
  *********************************************************************************************************************/
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << Start of documentation area >>                  DO NOT CHANGE THIS COMMENT!
@@ -151,6 +158,8 @@ FUNC(void, Test_SWC2_CODE) Test_SWC2_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_
   boolean fct_error = 0;
 
   uint8 Read_Test_SWC2_Read_Element;
+
+  uint8 Call_Test_SWC2_Client_Operation_arg_out = 0U;
 
   /*************************************************
   * Direct Function Accesses
@@ -181,6 +190,20 @@ FUNC(void, Test_SWC2_CODE) Test_SWC2_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_
   {
     case RTE_E_OK:
       fct_error = 0;
+      break;
+  }
+
+  fct_status = TSC_Test_SWC2_Rte_Call_Test_SWC2_Client_Operation(0U, &Call_Test_SWC2_Client_Operation_arg_out);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+    case RTE_E_UNCONNECTED:
+      fct_error = 1;
+      break;
+    case RTE_E_TIMEOUT:
+      fct_error = 1;
       break;
   }
 

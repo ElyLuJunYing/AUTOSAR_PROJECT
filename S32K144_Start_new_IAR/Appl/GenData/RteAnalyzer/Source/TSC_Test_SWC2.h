@@ -26,6 +26,9 @@ Std_ReturnType TSC_Test_SWC2_Rte_Read_Test_SWC2_Read_Element(uint8 *data);
 /** Sender receiver - explicit write services */
 Std_ReturnType TSC_Test_SWC2_Rte_Write_Test_SWC2_Write_Element(uint8 data);
 
+/** Client server interfaces */
+Std_ReturnType TSC_Test_SWC2_Rte_Call_Test_SWC2_Client_Operation(uint8 arg_in, uint8 *arg_out);
+
 
 
 

@@ -73,6 +73,10 @@ Std_ReturnType TSC_Test_SWC2_Rte_Write_Test_SWC2_Write_Element(uint8 data)
 
 
      /* Client Server Interfaces: */
+Std_ReturnType TSC_Test_SWC2_Rte_Call_Test_SWC2_Client_Operation(uint8 arg_in, uint8 *arg_out)
+{
+  return Rte_Call_Test_SWC2_Client_Operation(arg_in, arg_out);
+}
 
 
      /* Service calls */

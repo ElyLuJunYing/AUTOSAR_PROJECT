@@ -51,6 +51,23 @@
               </PROVIDED-COM-SPECS>
               <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Test_SWC_ReadWrite</PROVIDED-INTERFACE-TREF>
             </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="BD739385-BC93-4B95-9BDA-F41005CE1729">
+              <SHORT-NAME>Test_SWC_Service</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/Test_SWC_CS/Operation</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/Test_SWC_CS</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
           </PORTS>
           <INTERNAL-BEHAVIORS>
             <SWC-INTERNAL-BEHAVIOR UUID="63907FEF-59CF-426C-AE95-448C57FB78DF">
@@ -61,6 +78,14 @@
                   <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Test_SWC/Test_SWC_InternalBehavior/Test_SWC_Runnable</START-ON-EVENT-REF>
                   <PERIOD>0.05</PERIOD>
                 </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="0C1308DB-288F-4F91-A1B8-81F507FCF533">
+                  <SHORT-NAME>OIT_Test_SWC_Service_Operation_Test_SWC_Service_Operation</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Test_SWC/Test_SWC_InternalBehavior/Test_SWC_Service_Operation</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Test_SWC_Service</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/Test_SWC_CS/Operation</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
               </EVENTS>
               <RUNNABLES>
                 <RUNNABLE-ENTITY UUID="68EADAF7-6DD2-4C73-965D-2DEE0D74714D">
@@ -88,6 +113,9 @@
                       </ACCESSED-VARIABLE>
                     </VARIABLE-ACCESS>
                   </DATA-SEND-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="D4F41FDD-5A9C-47A7-8E5F-75E77BC44EAB">
+                  <SHORT-NAME>Test_SWC_Service_Operation</SHORT-NAME>
                 </RUNNABLE-ENTITY>
               </RUNNABLES>
               <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>

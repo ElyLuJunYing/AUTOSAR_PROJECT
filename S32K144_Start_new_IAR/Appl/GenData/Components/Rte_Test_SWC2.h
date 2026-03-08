@@ -86,6 +86,18 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC_Comp_Test_SWC_Write_Element; /* P
 #  define Rte_Write_Test_SWC2_Test_SWC2_Write_Element(data) (Rte_Test_SWC2_Comp_Test_SWC2_Write_Element = (data), ((Std_ReturnType)RTE_E_OK)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 
 
+/**********************************************************************************************************************
+ * Rte_Call_<p>_<o> (unmapped) for synchronous C/S communication
+ *********************************************************************************************************************/
+#  define RTE_START_SEC_TEST_SWC_APPL_CODE
+#  include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+FUNC(void, RTE_TEST_SWC_APPL_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, AUTOMATIC, RTE_TEST_SWC_APPL_VAR) arg_out); /* PRQA S 0850 */ /* MD_MSR_19.8 */
+#  define RTE_STOP_SEC_TEST_SWC_APPL_CODE
+#  include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+#  define Rte_Call_Test_SWC2_Client_Operation(arg1, arg2) (Test_SWC_Service_Operation(arg1, arg2), ((Std_ReturnType)RTE_E_OK)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
+
+
 # endif /* !defined(RTE_CORE) */
 
 
