@@ -126,6 +126,8 @@ Rte_DemSatellite_0.h<br>
 Rte_Det.h<br>
 Rte_EcuM.h<br>
 Rte_Os_OsCore0_swc.h<br>
+Rte_Test_SWC2.h<br>
+Rte_Test_SWC.h<br>
 Rte_BswM_Type.h<br>
 Rte_CddSbc_Type.h<br>
 Rte_ComM_Type.h<br>
@@ -136,6 +138,8 @@ Rte_DemSatellite_0_Type.h<br>
 Rte_Det_Type.h<br>
 Rte_EcuM_Type.h<br>
 Rte_Os_OsCore0_swc_Type.h<br>
+Rte_Test_SWC2_Type.h<br>
+Rte_Test_SWC_Type.h<br>
 Rte_Main.h<br>
 Rte_Type.h<br>
 Rte_DataHandleType.h<br>
@@ -155,6 +159,8 @@ DemSatellite_0_MemMap.h<br>
 Det_MemMap.h<br>
 EcuM_MemMap.h<br>
 Os_OsCore0_swc_MemMap.h<br>
+Test_SWC_MemMap.h<br>
+Test_SWC2_MemMap.h<br>
 Rte_Compiler_Cfg.h<br>
 Rte.c<br>
 Rte_cfg.mak<br>
@@ -206,7 +212,7 @@ Rte_Needs.ecuc.arxml<br>
 Note: This resource usage calculation assumes that the "Boolean" data type is based on uint8 base type.<br>
       Further on padding bytes for structs are not considered, which depends on the compiler settings.<br>
 <br>
-RAM   Size: 2 Bytes<br>
+RAM   Size: 4 Bytes<br>
 CONST Size: 0 Bytes<br>
 <br>
 <P ALIGN=LEFT>
@@ -887,6 +893,27 @@ CONST Size: 0 Bytes<br>
 <TD>n/a</TD>
 <TD>n/a</TD>
 <TD>n/a</TD>
+</TR>
+<TR>
+<TD><B>InitEvent</B></TD>
+<TD>Test_SWC2_Init</TD>
+<TD>OsTask_APP</TD>
+<TD>n/a</TD>
+<TD>n/a</TD>
+</TR>
+<TR>
+<TD><B>TimingEvent</B> Cyclic 50ms</TD>
+<TD>Test_SWC2_Runnable</TD>
+<TD>OsTask_APP</TD>
+<TD>Rte_Ev_Cyclic_OsTask_APP_0_50ms</TD>
+<TD>Rte_Al_TE_OsTask_APP_0_50ms</TD>
+</TR>
+<TR>
+<TD><B>TimingEvent</B> Cyclic 50ms</TD>
+<TD>Test_SWC_Runnable</TD>
+<TD>OsTask_APP</TD>
+<TD>Rte_Ev_Cyclic_OsTask_APP_0_50ms</TD>
+<TD>Rte_Al_TE_OsTask_APP_0_50ms</TD>
 </TR>
 </TABLE>
 <br>

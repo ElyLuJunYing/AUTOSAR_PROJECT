@@ -14,7 +14,7 @@
     "FileName": "",
     "WorkspacePath": "",
     "GeneratorBasePath": "D:\\AUTOSAR_TOOLs\\S32K144_SIP\\MICROSAR\\CBD1800257_D01_S32K1xx\\Generators\\Rte\\",
-    "OutputDirectory": "C:\\Users\\admin\\AppData\\Local\\Temp\\1772450970949-0\\"
+    "OutputDirectory": "C:\\Users\\admin\\AppData\\Local\\Temp\\1772963353846-0\\"
   },
   "ECUName": "MyECU",
   "EnableVFBTracing": false,
@@ -490,7 +490,9 @@
         "DemSatellite_0",
         "Det",
         "EcuM",
-        "Os_OsCore0_swc"
+        "Os_OsCore0_swc",
+        "Test_SWC",
+        "Test_SWC2"
       ],
       "ReferencingConstantsList": [],
       "SkipGeneration": true,
@@ -18942,10 +18944,480 @@
       "SignalPorts": [],
       "CalibrationPorts": [],
       "TriggerPorts": []
+    },
+    {
+      "$id": "1414",
+      "ComponentInstanceName": "Test_SWC_Comp",
+      "ComponentType": {
+        "$id": "1415",
+        "ComponentTypeName": "Test_SWC",
+        "RealizationType": 2,
+        "SupportsMultipleInstances": false,
+        "Description": "",
+        "ImplementationCodeType": 0,
+        "DataLayerLinkList": [
+          null
+        ],
+        "Type": 12,
+        "PerInstanceMemories": [],
+        "Runnables": [
+          {
+            "$id": "1416",
+            "RunnableName": "Test_SWC_Runnable",
+            "Description": "",
+            "Symbol": "",
+            "Reentrant": false,
+            "IsInitRunnable": false,
+            "DataLayerLinkList": [
+              null
+            ],
+            "MinimumStartInterval": {
+              "$id": "1417",
+              "Time": 50,
+              "Unit": 1
+            },
+            "TriggerList": [
+              {
+                "$id": "1418",
+                "CycleTime": 50,
+                "CycleTimeUnit": 1,
+                "CyclicTriggerOffset": 0,
+                "CyclicTriggerOffsetUnit": 0,
+                "CyclicTriggerImplementation": 0,
+                "TriggerType": "TimingEvent",
+                "RTEEventList": [
+                  "TMT_Test_SWC_Runnable"
+                ],
+                "PositionInTask": 0,
+                "UsesSchedule": 0,
+                "BitPosition": 0
+              }
+            ],
+            "DataSendPointList": [
+              {
+                "$id": "1419",
+                "AccessType": 1,
+                "TxAckMode": 0,
+                "Timeout": 0,
+                "TimeoutUnit": 1,
+                "PortDataElementRef": {
+                  "$id": "1420",
+                  "PortPrototypeName": "Test_SWC_Write",
+                  "DataElementPrototypeName": "Element",
+                  "Description": "",
+                  "PortInterfaceName": "Test_SWC_ReadWrite",
+                  "DataTypeRef": {
+                    "$ref": "21"
+                  },
+                  "IsInput": false,
+                  "IsService": false,
+                  "IsQueued": false,
+                  "EnableTakeAddress": false,
+                  "UseIndirectAPI": false,
+                  "PortPrototypeDescription": "",
+                  "CalibrationAccess": 1,
+                  "DataLayerLinkList": [
+                    null,
+                    null
+                  ],
+                  "InitValueRef": {
+                    "$ref": "767"
+                  },
+                  "HandleInvalid": 0,
+                  "CanInvalidate": false,
+                  "UsesE2EProtection": false,
+                  "EnableUpdate": false,
+                  "HandleNeverReceived": false,
+                  "RxFilter": 0,
+                  "UsesTxAcknowledge": false,
+                  "TxAcknowledgeTimeOut": 0,
+                  "TxAcknowledgeTimeOutUnit": 1,
+                  "IsNvPort": false,
+                  "ErrorHandling": 0,
+                  "DataWriteAccessList": [],
+                  "DataSendPointList": [
+                    {
+                      "$ref": "1419"
+                    }
+                  ]
+                }
+              }
+            ],
+            "DataReceivePointList": [
+              {
+                "$id": "1421",
+                "AccessType": 1,
+                "TxAckMode": 0,
+                "Timeout": 0,
+                "TimeoutUnit": 1,
+                "PortDataElementRef": {
+                  "$id": "1422",
+                  "PortPrototypeName": "Test_SWC_Read",
+                  "DataElementPrototypeName": "Element",
+                  "Description": "",
+                  "PortInterfaceName": "Test_SWC_ReadWrite",
+                  "DataTypeRef": {
+                    "$ref": "21"
+                  },
+                  "IsInput": true,
+                  "IsService": false,
+                  "IsQueued": false,
+                  "EnableTakeAddress": false,
+                  "UseIndirectAPI": false,
+                  "PortPrototypeDescription": "",
+                  "CalibrationAccess": 1,
+                  "DataLayerLinkList": [
+                    null,
+                    null
+                  ],
+                  "InitValueRef": {
+                    "$ref": "767"
+                  },
+                  "HandleInvalid": 0,
+                  "CanInvalidate": false,
+                  "UsesE2EProtection": false,
+                  "EnableUpdate": false,
+                  "AliveTimeout": "0",
+                  "HandleNeverReceived": false,
+                  "RxFilter": 0,
+                  "UsesTxAcknowledge": false,
+                  "TxAcknowledgeTimeOut": 0,
+                  "TxAcknowledgeTimeOutUnit": 0,
+                  "IsNvPort": false,
+                  "ErrorHandling": 0,
+                  "DataReadAccessList": [],
+                  "DataReceivePointList": [
+                    {
+                      "$ref": "1421"
+                    }
+                  ]
+                }
+              }
+            ],
+            "DataWriteAccessList": [],
+            "DataReadAccessList": [],
+            "ModeSwitchPointList": [],
+            "ModeAccessPointList": [],
+            "ServerCallPointList": [],
+            "ServerReturnPointList": [],
+            "ExclusiveAreaAccessList": [],
+            "InterRunnableVariableAccessList": [],
+            "ExternalTriggeringPointList": []
+          }
+        ],
+        "CalibrationParameters": [],
+        "CalibrationPorts": [],
+        "NvMBlockNeedServiceDependencies": [],
+        "ExclusiveAreas": []
+      },
+      "CTCalibrationSupport": false,
+      "OperationPorts": [],
+      "ModePorts": [],
+      "SignalPorts": [
+        {
+          "$id": "1423",
+          "IsInput": false,
+          "QueueLength": 0,
+          "IsComposite": false,
+          "IsNvSignalPort": false,
+          "PortDataElementRef": {
+            "$ref": "1420"
+          },
+          "InitValueRef": {
+            "$ref": "767"
+          },
+          "SignalPortName": "Test_SWC_Write_Element",
+          "PortConnectivity": 0,
+          "TxRxPortsHaveDifferentRecordLayout": false,
+          "HasSubElementMapping": false,
+          "SystemSignalRef": {
+            "$id": "1424",
+            "SystemSignalName": "Test_SWC_Comp_Test_SWC_Write_Element",
+            "SignalConnectivity": 0,
+            "Length": 0
+          },
+          "WasConnected": false
+        },
+        {
+          "$id": "1425",
+          "IsInput": true,
+          "QueueLength": 0,
+          "IsComposite": false,
+          "IsNvSignalPort": false,
+          "PortDataElementRef": {
+            "$ref": "1422"
+          },
+          "InitValueRef": {
+            "$ref": "767"
+          },
+          "SignalPortName": "Test_SWC_Read_Element",
+          "PortConnectivity": 0,
+          "TxRxPortsHaveDifferentRecordLayout": false,
+          "HasSubElementMapping": false,
+          "SystemSignalRef": {
+            "$id": "1426",
+            "SystemSignalName": "Test_SWC2_Comp_Test_SWC2_Write_Element",
+            "SignalConnectivity": 0,
+            "Length": 0
+          },
+          "WasConnected": false
+        }
+      ],
+      "CalibrationPorts": [],
+      "TriggerPorts": []
+    },
+    {
+      "$id": "1427",
+      "ComponentInstanceName": "Test_SWC2_Comp",
+      "ComponentType": {
+        "$id": "1428",
+        "ComponentTypeName": "Test_SWC2",
+        "RealizationType": 2,
+        "SupportsMultipleInstances": false,
+        "Description": "",
+        "ImplementationCodeType": 0,
+        "DataLayerLinkList": [
+          null
+        ],
+        "Type": 12,
+        "PerInstanceMemories": [],
+        "Runnables": [
+          {
+            "$id": "1429",
+            "RunnableName": "Test_SWC2_Init",
+            "Description": "",
+            "Symbol": "",
+            "Reentrant": false,
+            "IsInitRunnable": true,
+            "DataLayerLinkList": [
+              null
+            ],
+            "TriggerList": [
+              {
+                "$id": "1430",
+                "TriggerType": "InitEvent",
+                "RTEEventList": [
+                  "Test_SWC2_InitEvent"
+                ],
+                "PositionInTask": 0,
+                "UsesSchedule": 0,
+                "BitPosition": 0
+              }
+            ],
+            "DataSendPointList": [],
+            "DataReceivePointList": [],
+            "DataWriteAccessList": [],
+            "DataReadAccessList": [],
+            "ModeSwitchPointList": [],
+            "ModeAccessPointList": [],
+            "ServerCallPointList": [],
+            "ServerReturnPointList": [],
+            "ExclusiveAreaAccessList": [],
+            "InterRunnableVariableAccessList": [],
+            "ExternalTriggeringPointList": []
+          },
+          {
+            "$id": "1431",
+            "RunnableName": "Test_SWC2_Runnable",
+            "Description": "",
+            "Symbol": "",
+            "Reentrant": false,
+            "IsInitRunnable": false,
+            "DataLayerLinkList": [
+              null
+            ],
+            "MinimumStartInterval": {
+              "$id": "1432",
+              "Time": 50,
+              "Unit": 1
+            },
+            "TriggerList": [
+              {
+                "$id": "1433",
+                "CycleTime": 50,
+                "CycleTimeUnit": 1,
+                "CyclicTriggerOffset": 0,
+                "CyclicTriggerOffsetUnit": 0,
+                "CyclicTriggerImplementation": 0,
+                "TriggerType": "TimingEvent",
+                "RTEEventList": [
+                  "TMT_Test_SWC2_Runnable"
+                ],
+                "PositionInTask": 0,
+                "UsesSchedule": 0,
+                "BitPosition": 0
+              }
+            ],
+            "DataSendPointList": [
+              {
+                "$id": "1434",
+                "AccessType": 1,
+                "TxAckMode": 0,
+                "Timeout": 0,
+                "TimeoutUnit": 1,
+                "PortDataElementRef": {
+                  "$id": "1435",
+                  "PortPrototypeName": "Test_SWC2_Write",
+                  "DataElementPrototypeName": "Element",
+                  "Description": "",
+                  "PortInterfaceName": "Test_SWC_ReadWrite",
+                  "DataTypeRef": {
+                    "$ref": "21"
+                  },
+                  "IsInput": false,
+                  "IsService": false,
+                  "IsQueued": false,
+                  "EnableTakeAddress": false,
+                  "UseIndirectAPI": false,
+                  "PortPrototypeDescription": "",
+                  "CalibrationAccess": 1,
+                  "DataLayerLinkList": [
+                    null,
+                    null
+                  ],
+                  "InitValueRef": {
+                    "$ref": "767"
+                  },
+                  "HandleInvalid": 0,
+                  "CanInvalidate": false,
+                  "UsesE2EProtection": false,
+                  "EnableUpdate": false,
+                  "HandleNeverReceived": false,
+                  "RxFilter": 0,
+                  "UsesTxAcknowledge": false,
+                  "TxAcknowledgeTimeOut": 0,
+                  "TxAcknowledgeTimeOutUnit": 1,
+                  "IsNvPort": false,
+                  "ErrorHandling": 0,
+                  "DataWriteAccessList": [],
+                  "DataSendPointList": [
+                    {
+                      "$ref": "1434"
+                    }
+                  ]
+                }
+              }
+            ],
+            "DataReceivePointList": [
+              {
+                "$id": "1436",
+                "AccessType": 1,
+                "TxAckMode": 0,
+                "Timeout": 0,
+                "TimeoutUnit": 1,
+                "PortDataElementRef": {
+                  "$id": "1437",
+                  "PortPrototypeName": "Test_SWC2_Read",
+                  "DataElementPrototypeName": "Element",
+                  "Description": "",
+                  "PortInterfaceName": "Test_SWC_ReadWrite",
+                  "DataTypeRef": {
+                    "$ref": "21"
+                  },
+                  "IsInput": true,
+                  "IsService": false,
+                  "IsQueued": false,
+                  "EnableTakeAddress": false,
+                  "UseIndirectAPI": false,
+                  "PortPrototypeDescription": "",
+                  "CalibrationAccess": 1,
+                  "DataLayerLinkList": [
+                    null,
+                    null
+                  ],
+                  "InitValueRef": {
+                    "$ref": "767"
+                  },
+                  "HandleInvalid": 0,
+                  "CanInvalidate": false,
+                  "UsesE2EProtection": false,
+                  "EnableUpdate": false,
+                  "AliveTimeout": "0",
+                  "HandleNeverReceived": false,
+                  "RxFilter": 0,
+                  "UsesTxAcknowledge": false,
+                  "TxAcknowledgeTimeOut": 0,
+                  "TxAcknowledgeTimeOutUnit": 0,
+                  "IsNvPort": false,
+                  "ErrorHandling": 0,
+                  "DataReadAccessList": [],
+                  "DataReceivePointList": [
+                    {
+                      "$ref": "1436"
+                    }
+                  ]
+                }
+              }
+            ],
+            "DataWriteAccessList": [],
+            "DataReadAccessList": [],
+            "ModeSwitchPointList": [],
+            "ModeAccessPointList": [],
+            "ServerCallPointList": [],
+            "ServerReturnPointList": [],
+            "ExclusiveAreaAccessList": [],
+            "InterRunnableVariableAccessList": [],
+            "ExternalTriggeringPointList": []
+          }
+        ],
+        "CalibrationParameters": [],
+        "CalibrationPorts": [],
+        "NvMBlockNeedServiceDependencies": [],
+        "ExclusiveAreas": []
+      },
+      "CTCalibrationSupport": false,
+      "OperationPorts": [],
+      "ModePorts": [],
+      "SignalPorts": [
+        {
+          "$id": "1438",
+          "IsInput": false,
+          "QueueLength": 0,
+          "IsComposite": false,
+          "IsNvSignalPort": false,
+          "PortDataElementRef": {
+            "$ref": "1435"
+          },
+          "InitValueRef": {
+            "$ref": "767"
+          },
+          "SignalPortName": "Test_SWC2_Write_Element",
+          "PortConnectivity": 0,
+          "TxRxPortsHaveDifferentRecordLayout": false,
+          "HasSubElementMapping": false,
+          "SystemSignalRef": {
+            "$ref": "1426"
+          },
+          "WasConnected": false
+        },
+        {
+          "$id": "1439",
+          "IsInput": true,
+          "QueueLength": 0,
+          "IsComposite": false,
+          "IsNvSignalPort": false,
+          "PortDataElementRef": {
+            "$ref": "1437"
+          },
+          "InitValueRef": {
+            "$ref": "767"
+          },
+          "SignalPortName": "Test_SWC2_Read_Element",
+          "PortConnectivity": 0,
+          "TxRxPortsHaveDifferentRecordLayout": false,
+          "HasSubElementMapping": false,
+          "SystemSignalRef": {
+            "$ref": "1424"
+          },
+          "WasConnected": false
+        }
+      ],
+      "CalibrationPorts": [],
+      "TriggerPorts": []
     }
   ],
   "LdComPduTable": {
-    "$id": "1414"
+    "$id": "1440"
   },
   "IsAUTOSAR3Rte": false,
   "Type": 8,

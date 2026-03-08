@@ -69,6 +69,10 @@
  *  Rte_ReadHook_CtLedTask_RearLeftWindowPosition_u8_Signal_Start
  *  Rte_ReadHook_CtLedTask_RearRightWindowPosition_u8_Signal_Return
  *  Rte_ReadHook_CtLedTask_RearRightWindowPosition_u8_Signal_Start
+ *  Rte_ReadHook_Test_SWC2_Test_SWC2_Read_Element_Return
+ *  Rte_ReadHook_Test_SWC2_Test_SWC2_Read_Element_Start
+ *  Rte_ReadHook_Test_SWC_Test_SWC_Read_Element_Return
+ *  Rte_ReadHook_Test_SWC_Test_SWC_Read_Element_Start
  *  Rte_Runnable_BswM_BswM_MainFunction_Return
  *  Rte_Runnable_BswM_BswM_MainFunction_Start
  *  Rte_Runnable_CddSbc_Sbc_Test_Runnable_Return
@@ -209,6 +213,12 @@
  *  Rte_Runnable_Os_OsCore0_swc_GetCounterValue_Start
  *  Rte_Runnable_Os_OsCore0_swc_GetElapsedValue_Return
  *  Rte_Runnable_Os_OsCore0_swc_GetElapsedValue_Start
+ *  Rte_Runnable_Test_SWC2_Test_SWC2_Init_Return
+ *  Rte_Runnable_Test_SWC2_Test_SWC2_Init_Start
+ *  Rte_Runnable_Test_SWC2_Test_SWC2_Runnable_Return
+ *  Rte_Runnable_Test_SWC2_Test_SWC2_Runnable_Start
+ *  Rte_Runnable_Test_SWC_Test_SWC_Runnable_Return
+ *  Rte_Runnable_Test_SWC_Test_SWC_Runnable_Start
  *  Rte_SwitchAckHook_Dcm_DcmEcuReset_DcmEcuReset_Return
  *  Rte_SwitchAckHook_Dcm_DcmEcuReset_DcmEcuReset_Start
  *  Rte_SwitchHook_BswM_Switch_ESH_ModeSwitch_BswM_MDGP_ESH_Mode_Return
@@ -229,6 +239,10 @@
  *  Rte_WriteHook_CtLedTask_LampCnt_u8_Signal_Start
  *  Rte_WriteHook_CtLedTask_RearInteriorLight_Bool_Siganl_Return
  *  Rte_WriteHook_CtLedTask_RearInteriorLight_Bool_Siganl_Start
+ *  Rte_WriteHook_Test_SWC2_Test_SWC2_Write_Element_Return
+ *  Rte_WriteHook_Test_SWC2_Test_SWC2_Write_Element_Start
+ *  Rte_WriteHook_Test_SWC_Test_SWC_Write_Element_Return
+ *  Rte_WriteHook_Test_SWC_Test_SWC_Write_Element_Start
  *  SchM_EnterHook_Adc_ADC_EXCLUSIVE_AREA_00_Return
  *  SchM_EnterHook_Adc_ADC_EXCLUSIVE_AREA_00_Start
  *  SchM_EnterHook_Adc_ADC_EXCLUSIVE_AREA_01_Return

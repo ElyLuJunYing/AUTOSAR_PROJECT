@@ -40,6 +40,8 @@
 #include "Rte_Det.h"
 #include "Rte_EcuM.h"
 #include "Rte_Os_OsCore0_swc.h"
+#include "Rte_Test_SWC.h"
+#include "Rte_Test_SWC2.h"
 #include "SchM_Adc.h"
 #include "SchM_BswM.h"
 #include "SchM_Can.h"
@@ -105,6 +107,20 @@
 #else
 # define Rte_EnableOSInterrupts() ResumeOSInterrupts()   /* AUTOSAR OS */
 #endif
+
+
+/**********************************************************************************************************************
+ * Buffers for unqueued S/R
+ *********************************************************************************************************************/
+
+#define RTE_START_SEC_VAR_NOINIT_UNSPECIFIED
+#include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /* PRQA S 0850, 3408, 1504 */ /* MD_MSR_19.8, MD_Rte_3408, MD_MSR_8.10 */
+VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC_Comp_Test_SWC_Write_Element; /* PRQA S 0850, 3408, 1504 */ /* MD_MSR_19.8, MD_Rte_3408, MD_MSR_8.10 */
+
+#define RTE_STOP_SEC_VAR_NOINIT_UNSPECIFIED
+#include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
 
 
 /**********************************************************************************************************************
@@ -174,6 +190,7 @@ VAR(BswM_ESH_Mode, RTE_VAR_NOINIT) Rte_ModeMachine_BswM_Switch_ESH_ModeSwitch_Bs
 #define RTE_CONST_MSEC_SystemTimer_20 (20UL)
 #define RTE_CONST_MSEC_SystemTimer_300 (300UL)
 #define RTE_CONST_MSEC_SystemTimer_5 (5UL)
+#define RTE_CONST_MSEC_SystemTimer_50 (50UL)
 
 
 /**********************************************************************************************************************
@@ -214,6 +231,10 @@ FUNC(void, RTE_CODE) SchM_Init(void)
 
 FUNC(Std_ReturnType, RTE_CODE) Rte_Start(void) /* PRQA S 0850 */ /* MD_MSR_19.8 */
 {
+  /* set default values for internal data */
+  Rte_Test_SWC2_Comp_Test_SWC2_Write_Element = 0U;
+  Rte_Test_SWC_Comp_Test_SWC_Write_Element = 0U;
+
   /* reset Tx Ack Flags */
   Rte_AckFlagsInit();
   Rte_AckFlags.Rte_ModeSwitchAck_BswM_Switch_ESH_ModeSwitch_BswM_MDGP_ESH_Mode_Ack = 1;
@@ -228,6 +249,7 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Start(void) /* PRQA S 0850 */ /* MD_MSR_19.8 
   /* activate the alarms used for TimingEvents */
   (void)SetRelAlarm(Rte_Al_TE_Cdd_SBC_UJA1169_Sbc_Test_Runnable, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(100)); /* PRQA S 3417 */ /* MD_Rte_Os */
   (void)SetRelAlarm(Rte_Al_TE_CpLedTask_LedRunnable, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(300)); /* PRQA S 3417 */ /* MD_Rte_Os */
+  (void)SetRelAlarm(Rte_Al_TE_OsTask_APP_0_50ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(50)); /* PRQA S 3417 */ /* MD_Rte_Os */
 
   return RTE_E_OK;
 } /* PRQA S 6050 */ /* MD_MSR_STCAL */
@@ -237,6 +259,7 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Stop(void) /* PRQA S 0850 */ /* MD_MSR_19.8 *
   /* deactivate alarms */
   (void)CancelAlarm(Rte_Al_TE_Cdd_SBC_UJA1169_Sbc_Test_Runnable); /* PRQA S 3417 */ /* MD_Rte_Os */
   (void)CancelAlarm(Rte_Al_TE_CpLedTask_LedRunnable); /* PRQA S 3417 */ /* MD_Rte_Os */
+  (void)CancelAlarm(Rte_Al_TE_OsTask_APP_0_50ms); /* PRQA S 3417 */ /* MD_Rte_Os */
 
   return RTE_E_OK;
 }
@@ -1328,11 +1351,14 @@ TASK(OsTask_APP) /* PRQA S 3408, 1503 */ /* MD_Rte_3408, MD_MSR_14.1 */
   /* call runnable */
   CtLedTask_InitRunnable();
 
+  /* call runnable */
+  Test_SWC2_Init();
+
   for(;;)
   {
-    (void)WaitEvent(Rte_Ev_Run_Cdd_SBC_UJA1169_Sbc_Test_Runnable | Rte_Ev_Run_CpLedTask_LedRunnable); /* PRQA S 3417 */ /* MD_Rte_Os */
+    (void)WaitEvent(Rte_Ev_Cyclic_OsTask_APP_0_50ms | Rte_Ev_Run_Cdd_SBC_UJA1169_Sbc_Test_Runnable | Rte_Ev_Run_CpLedTask_LedRunnable); /* PRQA S 3417 */ /* MD_Rte_Os */
     (void)GetEvent(OsTask_APP, &ev); /* PRQA S 3417 */ /* MD_Rte_Os */
-    (void)ClearEvent(ev & (Rte_Ev_Run_Cdd_SBC_UJA1169_Sbc_Test_Runnable | Rte_Ev_Run_CpLedTask_LedRunnable)); /* PRQA S 3417 */ /* MD_Rte_Os */
+    (void)ClearEvent(ev & (Rte_Ev_Cyclic_OsTask_APP_0_50ms | Rte_Ev_Run_Cdd_SBC_UJA1169_Sbc_Test_Runnable | Rte_Ev_Run_CpLedTask_LedRunnable)); /* PRQA S 3417 */ /* MD_Rte_Os */
 
     if ((ev & Rte_Ev_Run_CpLedTask_LedRunnable) != (EventMaskType)0)
     {
@@ -1344,6 +1370,15 @@ TASK(OsTask_APP) /* PRQA S 3408, 1503 */ /* MD_Rte_3408, MD_MSR_14.1 */
     {
       /* call runnable */
       Sbc_Test_Runnable();
+    }
+
+    if ((ev & Rte_Ev_Cyclic_OsTask_APP_0_50ms) != (EventMaskType)0)
+    {
+      /* call runnable */
+      Test_SWC2_Runnable();
+
+      /* call runnable */
+      Test_SWC_Runnable();
     }
   }
 } /* PRQA S 6010, 6030, 6050, 6080 */ /* MD_MSR_STPTH, MD_MSR_STCYC, MD_MSR_STCAL, MD_MSR_STMIF */

@@ -1097,6 +1097,46 @@
             "../Components/TSC_Os_OsCore0_swc"
          ],
          "SourceFile" : "Source/TSC_Os_OsCore0_swc.c"
+      },
+      {
+         "IncludeDirectoryList" : [
+            "D:/AUTOSAR_TOOLs/S32K144_SIP/MICROSAR/CBD1800257_D01_S32K1xx/Misc/RteAnalyzer/include",
+            "Source",
+            "..",
+            "../Components",
+            "../Components/Test_SWC"
+         ],
+         "SourceFile" : "Source/Test_SWC.c"
+      },
+      {
+         "IncludeDirectoryList" : [
+            "D:/AUTOSAR_TOOLs/S32K144_SIP/MICROSAR/CBD1800257_D01_S32K1xx/Misc/RteAnalyzer/include",
+            "Source",
+            "..",
+            "../Components",
+            "../Components/TSC_Test_SWC"
+         ],
+         "SourceFile" : "Source/TSC_Test_SWC.c"
+      },
+      {
+         "IncludeDirectoryList" : [
+            "D:/AUTOSAR_TOOLs/S32K144_SIP/MICROSAR/CBD1800257_D01_S32K1xx/Misc/RteAnalyzer/include",
+            "Source",
+            "..",
+            "../Components",
+            "../Components/Test_SWC2"
+         ],
+         "SourceFile" : "Source/Test_SWC2.c"
+      },
+      {
+         "IncludeDirectoryList" : [
+            "D:/AUTOSAR_TOOLs/S32K144_SIP/MICROSAR/CBD1800257_D01_S32K1xx/Misc/RteAnalyzer/include",
+            "Source",
+            "..",
+            "../Components",
+            "../Components/TSC_Test_SWC2"
+         ],
+         "SourceFile" : "Source/TSC_Test_SWC2.c"
       }
    ],
    "TaskList" : [

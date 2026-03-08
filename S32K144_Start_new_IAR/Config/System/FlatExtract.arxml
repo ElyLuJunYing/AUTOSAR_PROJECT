@@ -273,6 +273,38 @@
                                   </ANNOTATIONS>
                                   <TYPE-TREF DEST="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE">/ComponentTypes/CddSbc</TYPE-TREF>
                                 </SW-COMPONENT-PROTOTYPE>
+                                <SW-COMPONENT-PROTOTYPE UUID="7b34bc3c-73ea-4426-b02b-8e44e11df385">
+                                  <SHORT-NAME>Test_SWC_Comp</SHORT-NAME>
+                                  <ADMIN-DATA>
+                                    <SDGS>
+                                      <SDG GID="DV:DEV">
+                                        <SD GID="DV:ImportModePreset">Keep</SD>
+                                      </SDG>
+                                    </SDGS>
+                                  </ADMIN-DATA>
+                                  <ANNOTATIONS>
+                                    <ANNOTATION>
+                                      <ANNOTATION-ORIGIN>DV:Flattener</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                  </ANNOTATIONS>
+                                  <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Test_SWC</TYPE-TREF>
+                                </SW-COMPONENT-PROTOTYPE>
+                                <SW-COMPONENT-PROTOTYPE UUID="7b5b9a48-b2b6-469d-94f6-37b75c34745c">
+                                  <SHORT-NAME>Test_SWC2_Comp</SHORT-NAME>
+                                  <ADMIN-DATA>
+                                    <SDGS>
+                                      <SDG GID="DV:DEV">
+                                        <SD GID="DV:ImportModePreset">Keep</SD>
+                                      </SDG>
+                                    </SDGS>
+                                  </ADMIN-DATA>
+                                  <ANNOTATIONS>
+                                    <ANNOTATION>
+                                      <ANNOTATION-ORIGIN>DV:Flattener</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                  </ANNOTATIONS>
+                                  <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Test_SWC2</TYPE-TREF>
+                                </SW-COMPONENT-PROTOTYPE>
                               </COMPONENTS>
                               <CONNECTORS>
                                 <ASSEMBLY-SW-CONNECTOR UUID="b00a99bb-51bd-42bf-9edb-6ce6cee64494">
@@ -295,6 +327,50 @@
                                   <REQUESTER-IREF>
                                     <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/CpLedTask</CONTEXT-COMPONENT-REF>
                                     <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/CtLedTask/UR_CN_CAN00_06ecbb07</TARGET-R-PORT-REF>
+                                  </REQUESTER-IREF>
+                                </ASSEMBLY-SW-CONNECTOR>
+                                <ASSEMBLY-SW-CONNECTOR UUID="a916b03f-dd41-4c0d-82f8-e7db5799becc">
+                                  <SHORT-NAME>Test_SWC_Comp_Test_SWC_Write_Test_SWC2_Comp_Test_SWC2_Read</SHORT-NAME>
+                                  <ANNOTATIONS>
+                                    <ANNOTATION>
+                                      <ANNOTATION-ORIGIN>DV:Flattener</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                    <ANNOTATION>
+                                      <LABEL>
+                                        <L-4 L="FOR-ALL">UB:Derived from original system description</L-4>
+                                      </LABEL>
+                                      <ANNOTATION-ORIGIN>DV:Readonly</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                  </ANNOTATIONS>
+                                  <PROVIDER-IREF>
+                                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC_Comp</CONTEXT-COMPONENT-REF>
+                                    <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Test_SWC_Write</TARGET-P-PORT-REF>
+                                  </PROVIDER-IREF>
+                                  <REQUESTER-IREF>
+                                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC2_Comp</CONTEXT-COMPONENT-REF>
+                                    <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Test_SWC2/Test_SWC2_Read</TARGET-R-PORT-REF>
+                                  </REQUESTER-IREF>
+                                </ASSEMBLY-SW-CONNECTOR>
+                                <ASSEMBLY-SW-CONNECTOR UUID="6c9cc450-2b07-43ce-8790-cfd3774541f2">
+                                  <SHORT-NAME>Test_SWC2_Comp_Test_SWC2_Write_Test_SWC_Comp_Test_SWC_Read</SHORT-NAME>
+                                  <ANNOTATIONS>
+                                    <ANNOTATION>
+                                      <ANNOTATION-ORIGIN>DV:Flattener</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                    <ANNOTATION>
+                                      <LABEL>
+                                        <L-4 L="FOR-ALL">UB:Derived from original system description</L-4>
+                                      </LABEL>
+                                      <ANNOTATION-ORIGIN>DV:Readonly</ANNOTATION-ORIGIN>
+                                    </ANNOTATION>
+                                  </ANNOTATIONS>
+                                  <PROVIDER-IREF>
+                                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC2_Comp</CONTEXT-COMPONENT-REF>
+                                    <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Test_SWC2/Test_SWC2_Write</TARGET-P-PORT-REF>
+                                  </PROVIDER-IREF>
+                                  <REQUESTER-IREF>
+                                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC_Comp</CONTEXT-COMPONENT-REF>
+                                    <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Test_SWC_Read</TARGET-R-PORT-REF>
                                   </REQUESTER-IREF>
                                 </ASSEMBLY-SW-CONNECTOR>
                               </CONNECTORS>
@@ -333,6 +409,8 @@
                                     <SD GID="e70ffa2b-4664-430f-abdb-4549bd94b2ce">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Det</SD>
                                     <SD GID="e6a62773-e3a5-47b2-ac93-080798d10a07">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/EcuM</SD>
                                     <SD GID="27952c58-181a-42e9-9aa1-510d43a8b269">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Os_OsCore0_swc</SD>
+                                    <SD GID="7b5b9a48-b2b6-469d-94f6-37b75c34745c">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC2_Comp</SD>
+                                    <SD GID="7b34bc3c-73ea-4426-b02b-8e44e11df385">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/COMPOSITIONTYPE/Test_SWC_Comp</SD>
                                     <SD GID="6090f47b-22ac-4e45-8807-2cfb3df63612">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/FLATMAP</SD>
                                     <SD GID="67562945-d323-4eaf-8493-8ce12755f932">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/SYSTEM</SD>
                                     <SD GID="a6157773-9fa7-4c61-9e7b-e7e2c3fd7bdf">/COM/VECTOR/CFG/WORKFLOW/SYSDESC/SYNC/SYSTEM/COMPOSITIONTYPE</SD>
@@ -349,6 +427,17 @@
                                     <SD GID="D6ACE6DC-4822-4E76-9AAB-ACC2B3E42FA8">/ComponentTypes/CtLedTask/RearRightWindowPosition</SD>
                                     <SD GID="2A37BFB3-125E-4FFF-9381-FF394F05B2E3">/ComponentTypes/CtLedTask/UR_CN_CAN00_06ecbb07</SD>
                                     <SD GID="2EB878D9-8957-4976-A7ED-B631951289EF">/ComponentTypes/CtLedTask_Implementation</SD>
+                                    <SD GID="0F914D84-504B-4833-9E37-871A486D386E">/ComponentTypes/Test_SWC</SD>
+                                    <SD GID="9B50ADA3-D2A6-4659-8636-FE0EEDD2EFDC">/ComponentTypes/Test_SWC/Test_SWC_InternalBehavior/TMT_Test_SWC_Runnable</SD>
+                                    <SD GID="80423881-3D4D-4370-8DB2-E7E99C02EB3D">/ComponentTypes/Test_SWC/Test_SWC_Read</SD>
+                                    <SD GID="7C14C98B-66C5-4B37-906C-CBC9385A89B0">/ComponentTypes/Test_SWC/Test_SWC_Write</SD>
+                                    <SD GID="CAD87261-AF50-46D3-8083-08B8D59DA5BE">/ComponentTypes/Test_SWC2</SD>
+                                    <SD GID="7A09190C-97CF-4706-82FB-AEDA7A23663F">/ComponentTypes/Test_SWC2/Test_SWC2_InternalBehavior/TMT_Test_SWC2_Runnable</SD>
+                                    <SD GID="24B9F7C7-6503-4E05-A986-8B0D22830A9D">/ComponentTypes/Test_SWC2/Test_SWC2_InternalBehavior/Test_SWC2_InitEvent</SD>
+                                    <SD GID="43918309-8D67-4E46-91D3-6FCBBF16AA45">/ComponentTypes/Test_SWC2/Test_SWC2_Read</SD>
+                                    <SD GID="01966D38-664C-4C32-8653-A233E3632877">/ComponentTypes/Test_SWC2/Test_SWC2_Write</SD>
+                                    <SD GID="CE900AB0-F6F0-442E-875A-E4AA91318A1D">/ComponentTypes/Test_SWC2_Implementation</SD>
+                                    <SD GID="F553822B-BBE4-4463-82DE-7B2F59746D7C">/ComponentTypes/Test_SWC_Implementation</SD>
                                     <SD GID="FA2722A8-DD7A-493E-ACE9-AA8189A6F547">/DataType/Constraint/DC_sig_LampCnt</SD>
                                     <SD GID="A09255C0-B996-42CD-9521-11F45444768B">/DataType/Constraint/DC_sig_RearInteriorLight</SD>
                                     <SD GID="B9880022-FF17-47E2-A356-E82C917F2A49">/DataType/Constraint/DC_sig_State_RearInteriorLight</SD>
@@ -359,6 +448,8 @@
                                     <SD GID="FD22F03B-8D66-4CBA-A825-9E3899E072AF">/ECUCompositionTypes/ECU_Composition</SD>
                                     <SD GID="F0764082-4F63-4CC5-8ADC-DB14FF6B95F7">/ECUCompositionTypes/ECU_Composition/Cdd_SBC_UJA1169</SD>
                                     <SD GID="6E3B8BA0-A77C-4C85-B120-56B689E415B9">/ECUCompositionTypes/ECU_Composition/CpLedTask</SD>
+                                    <SD GID="7536228A-6655-4939-AD16-FE9D15749E15">/ECUCompositionTypes/ECU_Composition/Test_SWC2_Comp</SD>
+                                    <SD GID="D6FDDAD1-A77A-47BE-A9A8-A501B339885A">/ECUCompositionTypes/ECU_Composition/Test_SWC_Comp</SD>
                                     <SD GID="a43e81d2-d27b-4c23-b29d-7f51d7c5996c">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM/BswMBehavior</SD>
                                     <SD GID="96086dc4-287c-4b6a-b413-586fecc74961">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM/BswMBehavior/BSWM_EXCLUSIVE_AREA_0</SD>
                                     <SD GID="5943179b-c366-4b7f-937b-e5aff30db49a">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM/BswMBehavior/BswM_MainFunction</SD>
@@ -821,8 +912,6 @@
                                     <SD GID="29D8C45D-AD65-4ADB-A8C0-9051D3BA8EB3">/Predefined_DEV/PortInterfaces/NvSWC_NvMService_AC3_SRBS_DS_Defs/E_NOT_OK</SD>
                                     <SD GID="B0DF499C-5446-40C9-BA84-69FE6BBA9AFA">/Predefined_DEV/PortInterfaces/NvSWC_NvMService_AC3_SRBS_Defs/E_NOT_OK</SD>
                                     <SD GID="6C11D3FD-1F97-4F18-9F28-AEBD06095420">/Predefined_DEV/PortInterfaces/NvSWC_NvMService_SRBS/E_NOT_OK</SD>
-                                    <SD GID="3ffb1965-c6ff-4c2a-881a-26077f97b175">/TS_T40D2M10I1R0/Adc_ib_bswmd</SD>
-                                    <SD GID="f7e35b14-0e7d-44e8-93d9-b302f92c6d50">/TS_T40D2M10I1R0/Adc_ib_bswmd/BswModuleDescriptions</SD>
                                     <SD GID="3ae6e7de-7989-4d0d-a176-b1c864d77b5d">/TS_T40D2M10I1R0/Adc_ib_bswmd/BswModuleDescriptions/Adc/AdcBehavior</SD>
                                     <SD GID="a26ef904-89eb-4b72-9c0d-fb3b0fe66841">/TS_T40D2M10I1R0/Adc_ib_bswmd/BswModuleDescriptions/Adc/AdcBehavior/ADC_EXCLUSIVE_AREA_00</SD>
                                     <SD GID="8853b001-eb12-42bb-9044-d1d1cfdfce22">/TS_T40D2M10I1R0/Adc_ib_bswmd/BswModuleDescriptions/Adc/AdcBehavior/ADC_EXCLUSIVE_AREA_01</SD>
@@ -951,8 +1040,6 @@
                                     <SD GID="95de89ce-e659-4403-8cf3-1ffa787fa6e7">/TS_T40D2M10I1R0/Port_ib_bswmd/BswModuleDescriptions/Port/PortBehavior/PORT_EXCLUSIVE_AREA_28</SD>
                                     <SD GID="20fcc88c-53d5-468f-bf68-5223336041a9">/TS_T40D2M10I1R0/Port_ib_bswmd/BswModuleDescriptions/Port/PortBehavior/PORT_EXCLUSIVE_AREA_29</SD>
                                     <SD GID="eabcf2a8-a246-4fda-a849-5c5892b74c50">/TS_T40D2M10I1R0/Port_ib_bswmd/BswModuleDescriptions/Port/PortBehavior/PORT_EXCLUSIVE_AREA_30</SD>
-                                    <SD GID="d80e6d68-e748-4788-89f9-c83e55aaa988">/TS_T40D2M10I1R0/Pwm_ib_bswmd</SD>
-                                    <SD GID="25caae39-712a-4d63-901b-ca8fde322348">/TS_T40D2M10I1R0/Pwm_ib_bswmd/BswModuleDescriptions</SD>
                                     <SD GID="abbce63e-7d8f-4c89-93a4-91185312499e">/TS_T40D2M10I1R0/Pwm_ib_bswmd/BswModuleDescriptions/Pwm/PwmBehavior</SD>
                                     <SD GID="0a6ccf34-f121-46a6-a534-8dc536a7030d">/TS_T40D2M10I1R0/Pwm_ib_bswmd/BswModuleDescriptions/Pwm/PwmBehavior/PWM_EXCLUSIVE_AREA_00</SD>
                                     <SD GID="fbba0e7b-6209-4917-806c-bd13f8e8d7c4">/TS_T40D2M10I1R0/Pwm_ib_bswmd/BswModuleDescriptions/Pwm/PwmBehavior/PWM_EXCLUSIVE_AREA_01</SD>
