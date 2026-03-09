@@ -131,6 +131,11 @@ VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC_Comp_Test_SWC_Write_Element; /* PRQA S 0
 #include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
 
 /* PRQA S 0850 L1 */ /* MD_MSR_19.8 */
+CONST(Array_Test_uint16, RTE_CONST) Rte_C_Array_Test_uint16_0 = {
+  0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U
+};
+/* PRQA L:L1 */
+/* PRQA S 0850 L1 */ /* MD_MSR_19.8 */
 CONST(Voltage_Record, RTE_CONST) Rte_C_Voltage_Record_0 = {
   0U, 0U
 };
@@ -160,6 +165,8 @@ VAR(Rte_AckFlagsType, RTE_VAR_NOINIT) Rte_AckFlags; /* PRQA S 0850 */ /* MD_MSR_
 #include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
 
 FUNC(void, RTE_CODE) Rte_MemClr(P2VAR(void, AUTOMATIC, RTE_VAR_NOINIT) ptr, uint32_least num); /* PRQA S 0850, 3447, 3408 */ /* MD_MSR_19.8, MD_Rte_3447, MD_Rte_3408 */
+FUNC(void, RTE_CODE) Rte_MemCpy(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num); /* PRQA S 0850, 1505, 3447, 3408 */ /* MD_MSR_19.8, MD_MSR_8.10, MD_Rte_3447, MD_Rte_3408 */
+FUNC(void, RTE_CODE) Rte_MemCpy32(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num); /* PRQA S 0850, 1505, 3447, 3408 */ /* MD_MSR_19.8, MD_MSR_8.10, MD_Rte_3447, MD_Rte_3408 */
 
 #define RTE_STOP_SEC_CODE
 #include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
@@ -223,6 +230,79 @@ VAR(BswM_ESH_Mode, RTE_VAR_NOINIT) Rte_ModeMachine_BswM_Switch_ESH_ModeSwitch_Bs
 
 #define RTE_START_SEC_CODE
 #include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+FUNC(void, RTE_CODE) Rte_MemCpy(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num) /* PRQA S 3408, 1505 */ /* MD_Rte_3408, MD_MSR_8.10 */
+{
+  P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) src = (P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA)) source;
+  P2VAR(uint8, AUTOMATIC, RTE_APPL_VAR) dst = (P2VAR(uint8, AUTOMATIC, RTE_APPL_VAR)) destination;
+  uint32_least i;
+  for (i = 0; i < num; i++)
+  {
+    dst[i] = src[i];
+  }
+}
+
+#define RTE_MEMCPY32ALIGN (sizeof(uint32) - 1)
+
+FUNC(void, RTE_CODE) Rte_MemCpy32(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num)
+{
+  P2CONST(uint32, AUTOMATIC, RTE_APPL_DATA) asrc = (P2CONST(uint32, AUTOMATIC, RTE_APPL_DATA)) source;
+  P2VAR(uint32, AUTOMATIC, RTE_APPL_VAR) adst = (P2VAR(uint32, AUTOMATIC, RTE_APPL_VAR)) destination;
+  P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA) src = (P2CONST(uint8, AUTOMATIC, RTE_APPL_DATA)) source;
+  P2VAR(uint8, AUTOMATIC, RTE_APPL_VAR) dst = (P2VAR(uint8, AUTOMATIC, RTE_APPL_VAR)) destination;
+  uint32_least i = 0;
+
+  if (num >= 16)
+  {
+    if (((((uint32)src) & RTE_MEMCPY32ALIGN) == 0) && ((((uint32)dst) & RTE_MEMCPY32ALIGN) == 0)) /* PRQA S 0306 */ /* MD_Rte_0306 */
+    {
+      uint32_least asize = num / sizeof(uint32);
+      uint32_least rem = num & RTE_MEMCPY32ALIGN;
+      for (i = 0; i < (asize - 3); i += 4)
+      {
+        adst[i] = asrc[i];
+        adst[i+1] = asrc[i+1];
+        adst[i+2] = asrc[i+2];
+        adst[i+3] = asrc[i+3];
+      }
+
+      while (i < asize)
+      {
+        adst[i] = asrc[i];
+        ++i;
+      }
+      i = num - rem;
+    }
+    else
+    {
+      for (i = 0; (i + 15) < num; i += 16)
+      {
+        dst[i] = src[i];
+        dst[i+1] = src[i+1];
+        dst[i+2] = src[i+2];
+        dst[i+3] = src[i+3];
+        dst[i+4] = src[i+4];
+        dst[i+5] = src[i+5];
+        dst[i+6] = src[i+6];
+        dst[i+7] = src[i+7];
+        dst[i+8] = src[i+8];
+        dst[i+9] = src[i+9];
+        dst[i+10] = src[i+10];
+        dst[i+11] = src[i+11];
+        dst[i+12] = src[i+12];
+        dst[i+13] = src[i+13];
+        dst[i+14] = src[i+14];
+        dst[i+15] = src[i+15];
+      }
+    }
+
+  }
+  while (i < num)
+  {
+    dst[i] = src[i];
+    ++i;
+  }
+}
 
 FUNC(void, RTE_CODE) Rte_MemClr(P2VAR(void, AUTOMATIC, RTE_VAR_NOINIT) ptr, uint32_least num)
 {
@@ -1479,6 +1559,11 @@ TASK(OsTask_BSW_SCHM) /* PRQA S 3408, 1503 */ /* MD_Rte_3408, MD_MSR_14.1 */
  *********************************************************************************************************************/
 
 /* module specific MISRA deviations:
+   MD_Rte_0306:  MISRA rule: 11.3
+     Reason:     An optimized copy algorithm can be used for aligned data. To check if pointers are aligned, pointers need to be casted to an integer type.
+     Risk:       No functional risk. Only the lower 8 bits of the address are checked, therefore all integer types are sufficient.
+     Prevention: Not required.
+
    MD_Rte_0781:  MISRA rule: 5.6
      Reason:     The name is being used as a structure/union member as well as being a label, tag or ordinary identifier.
                  The compliance to this rule is under user's control.

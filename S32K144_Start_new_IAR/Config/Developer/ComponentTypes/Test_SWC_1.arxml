@@ -69,7 +69,7 @@
               <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/Test_SWC_CS</PROVIDED-INTERFACE-TREF>
             </P-PORT-PROTOTYPE>
             <P-PORT-PROTOTYPE UUID="46517E31-12F7-4DBF-9993-015AB1D4C658">
-              <SHORT-NAME>Voltage_Write</SHORT-NAME>
+              <SHORT-NAME>Voltage_Array_Write</SHORT-NAME>
               <ADMIN-DATA>
                 <SDGS>
                   <SDG GID="DV:DEV">
@@ -81,9 +81,34 @@
                 <NONQUEUED-SENDER-COM-SPEC>
                   <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Voltage_SR_Port/u16_Signal</DATA-ELEMENT-REF>
                   <INIT-VALUE>
-                    <NUMERICAL-VALUE-SPECIFICATION>
-                      <VALUE>0</VALUE>
-                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <ARRAY-VALUE-SPECIFICATION>
+                      <ELEMENTS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </ELEMENTS>
+                    </ARRAY-VALUE-SPECIFICATION>
                   </INIT-VALUE>
                 </NONQUEUED-SENDER-COM-SPEC>
               </PROVIDED-COM-SPECS>
@@ -119,6 +144,28 @@
               </PROVIDED-COM-SPECS>
               <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Voltage_Record_SR_Port</PROVIDED-INTERFACE-TREF>
             </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="5C9CDCE9-049C-4248-BCAC-FB70453F2F6A">
+              <SHORT-NAME>Test_Enum_Read</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Test_Enum_Port/u8_signal</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Test_Enum_Port</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
           </PORTS>
           <INTERNAL-BEHAVIORS>
             <SWC-INTERNAL-BEHAVIOR UUID="63907FEF-59CF-426C-AE95-448C57FB78DF">
@@ -167,6 +214,17 @@
                 </RUNNABLE-ENTITY>
                 <RUNNABLE-ENTITY UUID="D4F41FDD-5A9C-47A7-8E5F-75E77BC44EAB">
                   <SHORT-NAME>Test_SWC_Service_Operation</SHORT-NAME>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="6D106B3C-0437-403A-9A88-E4FBF2283B7B">
+                      <SHORT-NAME>REC_Test_Enum_Read_u8_signal</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Test_Enum_Read</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Test_Enum_Port/u8_signal</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
                   <DATA-SEND-POINTS>
                     <VARIABLE-ACCESS UUID="BFF21D1C-6E1B-47A3-8E56-538253E4115F">
                       <SHORT-NAME>SEND_Voltage_Record_Write_St_Signal</SHORT-NAME>
@@ -181,7 +239,7 @@
                       <SHORT-NAME>SEND_Voltage_Write_u16_Signal</SHORT-NAME>
                       <ACCESSED-VARIABLE>
                         <AUTOSAR-VARIABLE-IREF>
-                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Voltage_Write</PORT-PROTOTYPE-REF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Test_SWC/Voltage_Array_Write</PORT-PROTOTYPE-REF>
                           <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Voltage_SR_Port/u16_Signal</TARGET-DATA-PROTOTYPE-REF>
                         </AUTOSAR-VARIABLE-IREF>
                       </ACCESSED-VARIABLE>

@@ -22,11 +22,12 @@
 
 /** Sender receiver - explicit read services */
 Std_ReturnType TSC_Test_SWC_Rte_Read_Test_SWC_Read_Element(uint8 *data);
+Std_ReturnType TSC_Test_SWC_Rte_Read_Test_Enum_Read_u8_signal(Enum_Datatype *data);
 
 /** Sender receiver - explicit write services */
 Std_ReturnType TSC_Test_SWC_Rte_Write_Test_SWC_Write_Element(uint8 data);
+Std_ReturnType TSC_Test_SWC_Rte_Write_Voltage_Array_Write_u16_Signal(const uint16 *data);
 Std_ReturnType TSC_Test_SWC_Rte_Write_Voltage_Record_Write_St_Signal(const Voltage_Record *data);
-Std_ReturnType TSC_Test_SWC_Rte_Write_Voltage_Write_u16_Signal(Voltage_uint16 data);
 
 
 

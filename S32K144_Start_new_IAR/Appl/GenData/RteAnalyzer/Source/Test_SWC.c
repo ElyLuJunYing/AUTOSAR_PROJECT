@@ -50,7 +50,7 @@
  *
  * Data Types:
  * ===========
- * Voltage_uint16
+ * Enum_Datatype
  *   
  *
  *********************************************************************************************************************/
@@ -64,6 +64,8 @@
  *********************************************************************************************************************/
 
 #include "string.h"
+
+static void Test_SWC_TestDefines(void);
 
 
 /**********************************************************************************************************************
@@ -79,9 +81,20 @@
  *
  * Primitive Types:
  * ================
- * Voltage_uint16: Integer in interval [0...65535]
  * uint16: Integer in interval [0...65535] (standard type)
  * uint8: Integer in interval [0...255] (standard type)
+ *
+ * Enumeration Types:
+ * ==================
+ * Enum_Datatype: Enumeration of integer in interval [0...255] with enumerators
+ *   state1 (0U)
+ *   state2 (1U)
+ *   state3 (3U)
+ *   state4 (4U)
+ *
+ * Array Types:
+ * ============
+ * Array_Test_uint16: Array with 8 element(s) of type uint16
  *
  * Record Types:
  * =============
@@ -173,6 +186,8 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_19
       break;
   }
 
+  Test_SWC_TestDefines();
+
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of runnable implementation >>               DO NOT CHANGE THIS COMMENT!
@@ -190,12 +205,19 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Runnable(void) /* PRQA S 0850 */ /* MD_MSR_19
  *
  **********************************************************************************************************************
  *
+ * Input Interfaces:
+ * =================
+ *   Explicit S/R API:
+ *   -----------------
+ *   Std_ReturnType Rte_Read_Test_Enum_Read_u8_signal(Enum_Datatype *data)
+ *
  * Output Interfaces:
  * ==================
  *   Explicit S/R API:
  *   -----------------
+ *   Std_ReturnType Rte_Write_Voltage_Array_Write_u16_Signal(const uint16 *data)
+ *     Argument data: uint16* is of type Array_Test_uint16
  *   Std_ReturnType Rte_Write_Voltage_Record_Write_St_Signal(const Voltage_Record *data)
- *   Std_ReturnType Rte_Write_Voltage_Write_u16_Signal(Voltage_uint16 data)
  *
  **********************************************************************************************************************
  *
@@ -224,14 +246,37 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, 
   Std_ReturnType fct_status;
   boolean fct_error = 0;
 
+  Enum_Datatype Read_Test_Enum_Read_u8_signal;
+
+  Array_Test_uint16 Write_Voltage_Array_Write_u16_Signal;
   Voltage_Record Write_Voltage_Record_Write_St_Signal;
 
   /*************************************************
   * Direct Function Accesses
   *************************************************/
 
-  (void)memset(&Write_Voltage_Record_Write_St_Signal, 0, sizeof(Write_Voltage_Record_Write_St_Signal));
-  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Record_Write_St_Signal(&Write_Voltage_Record_Write_St_Signal);
+  fct_status = TSC_Test_SWC_Rte_Read_Test_Enum_Read_u8_signal(&Read_Test_Enum_Read_u8_signal);
+  switch (fct_status)
+  {
+    case RTE_E_OK:
+      fct_error = 0;
+      break;
+    case RTE_E_UNCONNECTED:
+      fct_error = 1;
+      break;
+    case RTE_E_NEVER_RECEIVED:
+      fct_error = 1;
+      break;
+    case RTE_E_INVALID:
+      fct_error = 1;
+      break;
+    case RTE_E_MAX_AGE_EXCEEDED:
+      fct_error = 1;
+      break;
+  }
+
+  (void)memset(&Write_Voltage_Array_Write_u16_Signal, 0, sizeof(Write_Voltage_Array_Write_u16_Signal));
+  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Array_Write_u16_Signal(Write_Voltage_Array_Write_u16_Signal);
   switch (fct_status)
   {
     case RTE_E_OK:
@@ -239,7 +284,8 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, 
       break;
   }
 
-  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Write_u16_Signal(Rte_InitValue_Voltage_Write_u16_Signal);
+  (void)memset(&Write_Voltage_Record_Write_St_Signal, 0, sizeof(Write_Voltage_Record_Write_St_Signal));
+  fct_status = TSC_Test_SWC_Rte_Write_Voltage_Record_Write_St_Signal(&Write_Voltage_Record_Write_St_Signal);
   switch (fct_status)
   {
     case RTE_E_OK:
@@ -262,6 +308,15 @@ FUNC(void, Test_SWC_CODE) Test_SWC_Service_Operation(uint8 arg_in, P2VAR(uint8, 
  * DO NOT CHANGE THIS COMMENT!           << Start of function definition area >>            DO NOT CHANGE THIS COMMENT!
  *********************************************************************************************************************/
 
+static void Test_SWC_TestDefines(void)
+{
+  /* Enumeration Data Types */
+
+  Enum_Datatype Test_Enum_Datatype_V_1 = state1;
+  Enum_Datatype Test_Enum_Datatype_V_2 = state2;
+  Enum_Datatype Test_Enum_Datatype_V_3 = state3;
+  Enum_Datatype Test_Enum_Datatype_V_4 = state4;
+}
 
 /**********************************************************************************************************************
  * DO NOT CHANGE THIS COMMENT!           << End of function definition area >>              DO NOT CHANGE THIS COMMENT!

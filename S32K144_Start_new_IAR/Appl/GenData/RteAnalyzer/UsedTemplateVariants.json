@@ -131,17 +131,23 @@
          }
       },
       "Components/Rte_Test_SWC.h" : {
+         "Rte_InitValue_Test_Enum_Read_u8_signal" : {
+            "1b53a558b31c63acea001c0c155b637a" : {}
+         },
          "Rte_InitValue_Test_SWC_Read_Element" : {
             "1b53a558b31c63acea001c0c155b637a" : {}
          },
          "Rte_InitValue_Test_SWC_Write_Element" : {
             "1b53a558b31c63acea001c0c155b637a" : {}
          },
-         "Rte_InitValue_Voltage_Write_u16_Signal" : {
-            "1b53a558b31c63acea001c0c155b637a" : {}
+         "Rte_Read_Test_Enum_Read_u8_signal" : {
+            "b7ea013bbea5bf53f5a96b6b26f1b3da" : {}
          },
          "Rte_Read_Test_SWC_Read_Element" : {
             "b7ea013bbea5bf53f5a96b6b26f1b3da" : {}
+         },
+         "Rte_Read_Test_SWC_Test_Enum_Read_u8_signal" : {
+            "af422c44941d9eaf04da6f863589578a" : {}
          },
          "Rte_Read_Test_SWC_Test_SWC_Read_Element" : {
             "a72db8021039fbe90e87a8cb497336fc" : {}
@@ -149,19 +155,19 @@
          "Rte_Write_Test_SWC_Test_SWC_Write_Element" : {
             "1e5deb2028b2518cd9545c187afb2f6d" : {}
          },
-         "Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal" : {
+         "Rte_Write_Test_SWC_Voltage_Array_Write_u16_Signal" : {
             "4236c148305edc0e18ed431fc1699493" : {}
          },
-         "Rte_Write_Test_SWC_Voltage_Write_u16_Signal" : {
+         "Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal" : {
             "4236c148305edc0e18ed431fc1699493" : {}
          },
          "Rte_Write_Test_SWC_Write_Element" : {
             "03daf22f51dd97e8ae70665f6ca9c300" : {}
          },
-         "Rte_Write_Voltage_Record_Write_St_Signal" : {
+         "Rte_Write_Voltage_Array_Write_u16_Signal" : {
             "03daf22f51dd97e8ae70665f6ca9c300" : {}
          },
-         "Rte_Write_Voltage_Write_u16_Signal" : {
+         "Rte_Write_Voltage_Record_Write_St_Signal" : {
             "03daf22f51dd97e8ae70665f6ca9c300" : {}
          }
       },
@@ -341,6 +347,18 @@
          },
          "Rte_MemClr" : {
             "ab9b0d34bc13beb07917d7bc5ddd74b5" : {}
+         },
+         "Rte_MemCpy" : {
+            "45afc1a025d31247d564009d2f992f07" : {},
+            "659949b8f0fc1e05af4d5c1a876b639b" : {}
+         },
+         "Rte_MemCpy32" : {
+            "06ac359ab886562f37638a299b6ec673" : {},
+            "537cf2fb0df631ecb120e83532bf2777" : {},
+            "55890adf4f41b1ed1abc3283466fc433" : {},
+            "a7e3dc81869358353b3c6ce37c626733" : {},
+            "bcf3a52f82bf58141d5febf9bc5075c7" : {},
+            "fedf041424b429e91a031d89ed01bf26" : {}
          },
          "Rte_Mode_BswM_Notification_ESH_ModeNotification_BswM_MDGP_ESH_Mode" : {
             "1c99628f7d72613bb84ac70bb8c41e18" : {},

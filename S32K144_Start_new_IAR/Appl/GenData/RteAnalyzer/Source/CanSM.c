@@ -78,7 +78,6 @@
  * EcuM_UserType: Integer in interval [0...255]
  * NetworkHandleType: Integer in interval [0...255]
  * TimeInMicrosecondsType: Integer in interval [0...4294967295]
- * Voltage_uint16: Integer in interval [0...65535]
  * boolean: Boolean (standard type)
  * sint8: Integer in interval [-128...127] (standard type)
  * uint16: Integer in interval [0...65535] (standard type)
@@ -121,9 +120,11 @@
  * EcuM_ModeType: Enumeration of integer in interval [0...3] with enumerators
  * EcuM_ShutdownCauseType: Enumeration of integer in interval [0...3] with enumerators
  * EcuM_StateType: Enumeration of integer in interval [0...144] with enumerators
+ * Enum_Datatype: Enumeration of integer in interval [0...255] with enumerators
  *
  * Array Types:
  * ============
+ * Array_Test_uint16: Array with 8 element(s) of type uint16
  * DataArrayType_uint8_4: Array with 4 element(s) of type uint8
  * Dcm_Data2ByteType: Array with 2 element(s) of type uint8
  * Dcm_Data4ByteType: Array with 4 element(s) of type uint8

@@ -30,6 +30,9 @@
  * Data type definitions
  *********************************************************************************************************************/
 
+# define Rte_TypeDef_Array_Test_uint16
+typedef uint16 Array_Test_uint16[8];
+
 # define Rte_TypeDef_DataArrayType_uint8_4
 typedef uint8 DataArrayType_uint8_4[4];
 
@@ -178,11 +181,11 @@ typedef uint32 EcuM_TimeType;
 # define Rte_TypeDef_EcuM_UserType
 typedef uint8 EcuM_UserType;
 
+# define Rte_TypeDef_Enum_Datatype
+typedef uint8 Enum_Datatype;
+
 # define Rte_TypeDef_TimeInMicrosecondsType
 typedef uint32 TimeInMicrosecondsType;
-
-# define Rte_TypeDef_Voltage_uint16
-typedef uint16 Voltage_uint16;
 
 
 # ifndef RTE_SUPPRESS_UNUSED_DATATYPES
@@ -202,6 +205,9 @@ typedef uint8 NvM_RequestResultType;
 #  define Rte_TypeDef_NvM_ServiceIdType
 typedef uint8 NvM_ServiceIdType;
 
+#  define Rte_TypeDef_Voltage_uint16
+typedef uint16 Voltage_uint16;
+
 # endif
 
 
@@ -211,6 +217,8 @@ typedef uint8 NvM_ServiceIdType;
 
 # define RTE_START_SEC_CONST_UNSPECIFIED
 # include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+extern CONST(Array_Test_uint16, RTE_CONST) Rte_C_Array_Test_uint16_0; /* PRQA S 0850 */ /* MD_MSR_19.8 */
 
 extern CONST(Voltage_Record, RTE_CONST) Rte_C_Voltage_Record_0; /* PRQA S 0850 */ /* MD_MSR_19.8 */
 

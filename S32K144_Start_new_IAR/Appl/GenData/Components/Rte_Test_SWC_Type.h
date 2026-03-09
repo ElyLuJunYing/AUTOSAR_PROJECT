@@ -32,6 +32,26 @@ extern "C"
 
 # ifndef RTE_CORE
 
+/**********************************************************************************************************************
+ * Range, Invalidation, Enumeration and Bit Field Definitions
+ *********************************************************************************************************************/
+
+#  ifndef state1
+#   define state1 (0U)
+#  endif
+
+#  ifndef state2
+#   define state2 (1U)
+#  endif
+
+#  ifndef state3
+#   define state3 (3U)
+#  endif
+
+#  ifndef state4
+#   define state4 (4U)
+#  endif
+
 # endif /* RTE_CORE */
 
 # ifdef __cplusplus

@@ -59,15 +59,29 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
 
 # endif /* !defined(RTE_CORE) */
 
+# ifndef RTE_CORE
+
+#  define RTE_START_SEC_CODE
+#  include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+/* RTE Helper-Functions */
+FUNC(void, RTE_CODE) Rte_MemCpy(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num);
+FUNC(void, RTE_CODE) Rte_MemCpy32(P2VAR(void, AUTOMATIC, RTE_APPL_VAR) destination, P2CONST(void, AUTOMATIC, RTE_APPL_DATA) source, uint32_least num);
+
+#  define RTE_STOP_SEC_CODE
+#  include "MemMap.h" /* PRQA S 5087 */ /* MD_MSR_19.1 */
+
+# endif /* !defined(RTE_CORE) */
+
 
 # ifndef RTE_CORE
 /**********************************************************************************************************************
  * Init Values for unqueued S/R communication (primitive types only)
  *********************************************************************************************************************/
 
+#  define Rte_InitValue_Test_Enum_Read_u8_signal (0U)
 #  define Rte_InitValue_Test_SWC_Read_Element (0U)
 #  define Rte_InitValue_Test_SWC_Write_Element (0U)
-#  define Rte_InitValue_Voltage_Write_u16_Signal (0U)
 # endif
 
 
@@ -76,6 +90,8 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
 /**********************************************************************************************************************
  * Rte_Read_<p>_<d> (explicit S/R communication with isQueued = false)
  *********************************************************************************************************************/
+#  define Rte_Read_Test_Enum_Read_u8_signal Rte_Read_Test_SWC_Test_Enum_Read_u8_signal
+#  define Rte_Read_Test_SWC_Test_Enum_Read_u8_signal(data) (*(data) = 0U, ((Std_ReturnType)RTE_E_UNCONNECTED)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 #  define Rte_Read_Test_SWC_Read_Element Rte_Read_Test_SWC_Test_SWC_Read_Element
 #  define Rte_Read_Test_SWC_Test_SWC_Read_Element(data) (*(data) = Rte_Test_SWC2_Comp_Test_SWC2_Write_Element, ((Std_ReturnType)RTE_E_OK)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 
@@ -85,10 +101,10 @@ extern VAR(uint8, RTE_VAR_NOINIT) Rte_Test_SWC2_Comp_Test_SWC2_Write_Element; /*
  *********************************************************************************************************************/
 #  define Rte_Write_Test_SWC_Write_Element Rte_Write_Test_SWC_Test_SWC_Write_Element
 #  define Rte_Write_Test_SWC_Test_SWC_Write_Element(data) (Rte_Test_SWC_Comp_Test_SWC_Write_Element = (data), ((Std_ReturnType)RTE_E_OK)) /* PRQA S 3453 */ /* MD_MSR_19.7 */
+#  define Rte_Write_Voltage_Array_Write_u16_Signal Rte_Write_Test_SWC_Voltage_Array_Write_u16_Signal
+#  define Rte_Write_Test_SWC_Voltage_Array_Write_u16_Signal(data) (RTE_E_OK) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 #  define Rte_Write_Voltage_Record_Write_St_Signal Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal
 #  define Rte_Write_Test_SWC_Voltage_Record_Write_St_Signal(data) (RTE_E_OK) /* PRQA S 3453 */ /* MD_MSR_19.7 */
-#  define Rte_Write_Voltage_Write_u16_Signal Rte_Write_Test_SWC_Voltage_Write_u16_Signal
-#  define Rte_Write_Test_SWC_Voltage_Write_u16_Signal(data) (RTE_E_OK) /* PRQA S 3453 */ /* MD_MSR_19.7 */
 
 
 # endif /* !defined(RTE_CORE) */
