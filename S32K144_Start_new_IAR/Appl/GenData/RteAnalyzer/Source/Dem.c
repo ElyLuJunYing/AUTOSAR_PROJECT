@@ -120,21 +120,13 @@
  * EcuM_ModeType: Enumeration of integer in interval [0...3] with enumerators
  * EcuM_ShutdownCauseType: Enumeration of integer in interval [0...3] with enumerators
  * EcuM_StateType: Enumeration of integer in interval [0...144] with enumerators
- * Enum_Datatype: Enumeration of integer in interval [0...255] with enumerators
  *
  * Array Types:
  * ============
- * Array_Test_uint16: Array with 8 element(s) of type uint16
  * DataArrayType_uint8_4: Array with 4 element(s) of type uint8
  * Dcm_Data2ByteType: Array with 2 element(s) of type uint8
  * Dcm_Data4ByteType: Array with 4 element(s) of type uint8
  * Dem_MaxDataValueType: Array with 4 element(s) of type uint8
- *
- * Record Types:
- * =============
- * Voltage_Record: Record with elements
- *   Current of type uint8
- *   Voltage of type uint16
  *
  *********************************************************************************************************************/
 
