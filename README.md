@@ -13,7 +13,7 @@
 3. **控制仲裁设计**：Truth Table 仲裁规则在 Enable/Disable 双工况下筛选有效控制输出，杜绝自动控制与手动控制冲突，按动作表输出 SWC-Port 数据。
 4. **模型验证与联调**：Model Advisor 通过 MISRA C:2012 规范检查 → MIL 测试决策覆盖 100% → 生成代码集成 AUTOSAR 工程 → TSMaster + IAR Live Watch 完成 PIL 联调，形成"建模→验证→集成"闭环。
 
-## 学习文件全览（E:\学习课程 · AUTOSAR 全栈学习与实践）
+## 学习文件全览（AUTOSAR 全栈学习与实践）
 
 从环境搭建、底层 MCAL 到应用层、通信矩阵到诊断的完整学习链路：
 
